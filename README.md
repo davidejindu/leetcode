@@ -28,6 +28,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0128-longest-consecutive-sequence](https://github.com/davidejindu/leetcode/tree/master/0128-longest-consecutive-sequence) |
 | [0217-contains-duplicate](https://github.com/davidejindu/leetcode/tree/master/0217-contains-duplicate) |
 | [0347-top-k-frequent-elements](https://github.com/davidejindu/leetcode/tree/master/0347-top-k-frequent-elements) |
+| [1039-find-the-town-judge](https://github.com/davidejindu/leetcode/tree/master/1039-find-the-town-judge) |
 | [1574-maximum-product-of-two-elements-in-an-array](https://github.com/davidejindu/leetcode/tree/master/1574-maximum-product-of-two-elements-in-an-array) |
 ## Hash Table
 |  |
@@ -37,6 +38,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0217-contains-duplicate](https://github.com/davidejindu/leetcode/tree/master/0217-contains-duplicate) |
 | [0242-valid-anagram](https://github.com/davidejindu/leetcode/tree/master/0242-valid-anagram) |
 | [0347-top-k-frequent-elements](https://github.com/davidejindu/leetcode/tree/master/0347-top-k-frequent-elements) |
+| [1039-find-the-town-judge](https://github.com/davidejindu/leetcode/tree/master/1039-find-the-town-judge) |
 ## Sorting
 |  |
 | ------- |
@@ -80,4 +82,8 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0128-longest-consecutive-sequence](https://github.com/davidejindu/leetcode/tree/master/0128-longest-consecutive-sequence) |
+## Graph
+|  |
+| ------- |
+| [1039-find-the-town-judge](https://github.com/davidejindu/leetcode/tree/master/1039-find-the-town-judge) |
 <!---LeetCode Topics End-->
