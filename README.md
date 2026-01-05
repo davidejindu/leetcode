@@ -24,6 +24,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Array
 |  |
 | ------- |
+| [0011-container-with-most-water](https://github.com/davidejindu/leetcode/tree/master/0011-container-with-most-water) |
 | [0036-valid-sudoku](https://github.com/davidejindu/leetcode/tree/master/0036-valid-sudoku) |
 | [0049-group-anagrams](https://github.com/davidejindu/leetcode/tree/master/0049-group-anagrams) |
 | [0128-longest-consecutive-sequence](https://github.com/davidejindu/leetcode/tree/master/0128-longest-consecutive-sequence) |
@@ -61,6 +62,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Two Pointers
 |  |
 | ------- |
+| [0011-container-with-most-water](https://github.com/davidejindu/leetcode/tree/master/0011-container-with-most-water) |
 | [0125-valid-palindrome](https://github.com/davidejindu/leetcode/tree/master/0125-valid-palindrome) |
 | [0167-two-sum-ii-input-array-is-sorted](https://github.com/davidejindu/leetcode/tree/master/0167-two-sum-ii-input-array-is-sorted) |
 ## Divide and Conquer
@@ -108,4 +110,8 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0747-min-cost-climbing-stairs](https://github.com/davidejindu/leetcode/tree/master/0747-min-cost-climbing-stairs) |
+## Greedy
+|  |
+| ------- |
+| [0011-container-with-most-water](https://github.com/davidejindu/leetcode/tree/master/0011-container-with-most-water) |
 <!---LeetCode Topics End-->
