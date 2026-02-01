@@ -33,6 +33,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0217-contains-duplicate](https://github.com/davidejindu/leetcode/tree/master/0217-contains-duplicate) |
 | [0238-product-of-array-except-self](https://github.com/davidejindu/leetcode/tree/master/0238-product-of-array-except-self) |
 | [0347-top-k-frequent-elements](https://github.com/davidejindu/leetcode/tree/master/0347-top-k-frequent-elements) |
+| [0704-binary-search](https://github.com/davidejindu/leetcode/tree/master/0704-binary-search) |
 | [0747-min-cost-climbing-stairs](https://github.com/davidejindu/leetcode/tree/master/0747-min-cost-climbing-stairs) |
 | [0904-fruit-into-baskets](https://github.com/davidejindu/leetcode/tree/master/0904-fruit-into-baskets) |
 | [1039-find-the-town-judge](https://github.com/davidejindu/leetcode/tree/master/1039-find-the-town-judge) |
@@ -119,6 +120,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0167-two-sum-ii-input-array-is-sorted](https://github.com/davidejindu/leetcode/tree/master/0167-two-sum-ii-input-array-is-sorted) |
+| [0704-binary-search](https://github.com/davidejindu/leetcode/tree/master/0704-binary-search) |
 ## Dynamic Programming
 |  |
 | ------- |
