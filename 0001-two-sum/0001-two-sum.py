@@ -1,10 +1,25 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        hashMap = {}
+        """
 
-        for i in range(len(nums)):
-            diff = target - nums[i]
+    2,7,11,15
 
-            if diff in hashMap:
-                return [hashMap[diff], i]
-            hashMap[nums[i]] = i
+    so i want the indexes that add up to 9 
+    i can create a hashmap of value and index
+    if target - num in hashmap ik I have what i need
+    so i can return [hashmap[target-num], i]
+
+
+        """
+        target_map = {}
+
+        for index, value in enumerate(nums):
+            num = target - value
+
+            if num in target_map:
+                return [target_map[num], index]
+
+            target_map[value] = index
+
+        print(target_map)
+        return []
