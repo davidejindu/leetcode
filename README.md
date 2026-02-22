@@ -19,6 +19,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0543-diameter-of-binary-tree](https://github.com/davidejindu/leetcode/tree/master/0543-diameter-of-binary-tree) |
 | [0547-number-of-provinces](https://github.com/davidejindu/leetcode/tree/master/0547-number-of-provinces) |
 | [0617-merge-two-binary-trees](https://github.com/davidejindu/leetcode/tree/master/0617-merge-two-binary-trees) |
+| [0743-network-delay-time](https://github.com/davidejindu/leetcode/tree/master/0743-network-delay-time) |
 ## Breadth-First Search
 |  |
 | ------- |
@@ -28,6 +29,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0226-invert-binary-tree](https://github.com/davidejindu/leetcode/tree/master/0226-invert-binary-tree) |
 | [0547-number-of-provinces](https://github.com/davidejindu/leetcode/tree/master/0547-number-of-provinces) |
 | [0617-merge-two-binary-trees](https://github.com/davidejindu/leetcode/tree/master/0617-merge-two-binary-trees) |
+| [0743-network-delay-time](https://github.com/davidejindu/leetcode/tree/master/0743-network-delay-time) |
 ## Binary Tree
 |  |
 | ------- |
@@ -106,6 +108,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0347-top-k-frequent-elements](https://github.com/davidejindu/leetcode/tree/master/0347-top-k-frequent-elements) |
+| [0743-network-delay-time](https://github.com/davidejindu/leetcode/tree/master/0743-network-delay-time) |
 | [1574-maximum-product-of-two-elements-in-an-array](https://github.com/davidejindu/leetcode/tree/master/1574-maximum-product-of-two-elements-in-an-array) |
 ## Bucket Sort
 |  |
@@ -177,8 +180,13 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0207-course-schedule](https://github.com/davidejindu/leetcode/tree/master/0207-course-schedule) |
 | [0547-number-of-provinces](https://github.com/davidejindu/leetcode/tree/master/0547-number-of-provinces) |
+| [0743-network-delay-time](https://github.com/davidejindu/leetcode/tree/master/0743-network-delay-time) |
 ## Topological Sort
 |  |
 | ------- |
 | [0207-course-schedule](https://github.com/davidejindu/leetcode/tree/master/0207-course-schedule) |
+## Shortest Path
+|  |
+| ------- |
+| [0743-network-delay-time](https://github.com/davidejindu/leetcode/tree/master/0743-network-delay-time) |
 <!---LeetCode Topics End-->
