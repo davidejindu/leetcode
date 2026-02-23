@@ -1,16 +1,29 @@
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
-        numSet = set(nums)
 
-        maxCount = 0
+        """
+        create a hashset
+        add each element to hashset
+        if num -1 in nums in hashset 
+        add 1 
+        if not then reset count
 
-        for num in numSet:
+
+        """
+
+        max_consecutive = 0
+        store_nums = set(nums)
+        print(store_nums)
+
+        for num in store_nums:
             count = 0
-            if num - 1 not in numSet:
-                while num in numSet:
-                    count +=1
-                    num = num + 1
-            maxCount = max(count, maxCount)
+            if num - 1 not in store_nums:
+                while num in store_nums:
+                    count +=1 
+                    num +=1
 
-        return maxCount
+                max_consecutive = max(count, max_consecutive)
 
+        return max_consecutive
+
+        
