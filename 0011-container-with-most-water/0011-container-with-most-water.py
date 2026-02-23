@@ -1,22 +1,24 @@
 class Solution:
     def maxArea(self, height: List[int]) -> int:
-        l, r = 0, len(height) - 1
+        """
+        two pointers
 
-        maximumArea = 0
+        the maximum is basically just the min of height[r] and height[l] * r - l
+
+        """
+
+        l, r = 0, len(height) - 1
+        max_height = 0
 
         while l < r:
-            distance = r - l
+            min_height = min(height[l], height[r])
+            current_height = min_height * (r - l)
+
+            max_height = max(max_height, current_height)
 
             if height[l] < height[r]:
-                maximumArea = max(maximumArea,distance * height[l])
-
-            else:
-                maximumArea = max(maximumArea, distance * height[r])
-
-            if height[l] < height[r]:
-                l+=1
-
+                l +=1
             else:
                 r -=1
 
-        return maximumArea
+        return max_height
