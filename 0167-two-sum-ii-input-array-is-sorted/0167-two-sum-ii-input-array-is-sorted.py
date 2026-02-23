@@ -1,22 +1,22 @@
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        """
+        since they are sorted two pointers
+
+        if l + r is greater than target move right down vice versa until its equal
+        then just return [l,r]
+
 
         """
-        [3,24,50,79,88,150,345] target = 200
-         l                  r
 
+        l, r = 0, len(numbers) - 1
 
-        """
-        
-        left, right = 0, len(numbers) - 1
+        while l < r:
+            if numbers[l] + numbers[r] == target:
+                return [l+1,r+1]
 
-        while left < right:
-            if numbers[left] + numbers[right] == target:
-                return [left +1, right +1]
-
-            elif numbers[left] + numbers[right] < target:
-
-                left +=1
+            if numbers[l] + numbers[r] > target:
+                r -=1
 
             else:
-                right -= 1
+                l +=1
