@@ -47,6 +47,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0026-remove-duplicates-from-sorted-array](https://github.com/davidejindu/leetcode/tree/master/0026-remove-duplicates-from-sorted-array) |
 | [0036-valid-sudoku](https://github.com/davidejindu/leetcode/tree/master/0036-valid-sudoku) |
 | [0049-group-anagrams](https://github.com/davidejindu/leetcode/tree/master/0049-group-anagrams) |
+| [0121-best-time-to-buy-and-sell-stock](https://github.com/davidejindu/leetcode/tree/master/0121-best-time-to-buy-and-sell-stock) |
 | [0128-longest-consecutive-sequence](https://github.com/davidejindu/leetcode/tree/master/0128-longest-consecutive-sequence) |
 | [0153-find-minimum-in-rotated-sorted-array](https://github.com/davidejindu/leetcode/tree/master/0153-find-minimum-in-rotated-sorted-array) |
 | [0167-two-sum-ii-input-array-is-sorted](https://github.com/davidejindu/leetcode/tree/master/0167-two-sum-ii-input-array-is-sorted) |
@@ -155,6 +156,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Dynamic Programming
 |  |
 | ------- |
+| [0121-best-time-to-buy-and-sell-stock](https://github.com/davidejindu/leetcode/tree/master/0121-best-time-to-buy-and-sell-stock) |
 | [0747-min-cost-climbing-stairs](https://github.com/davidejindu/leetcode/tree/master/0747-min-cost-climbing-stairs) |
 ## Greedy
 |  |
