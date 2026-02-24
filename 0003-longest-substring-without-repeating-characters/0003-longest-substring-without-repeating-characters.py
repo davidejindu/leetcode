@@ -1,45 +1,33 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         """
-       "abcabcbb"
-        ^
-           ^
-        max_window = 3
-        both pointers start at 0 
-        if s[r] not in hashSet increase the maxwindow
-
-        if its in hashset dont add then get max subset
-        after that remove s[l] from result
-        increment l+=1
-
+        use a set to check if its in the window
+        l,r = 0, 0
+        if s[r] not in set append and increase the max
+        if its inset keep popping left until its not
+        
+        longest_substring = 2
+        in_substring = {d, v}
+        dvdf
+          r
+         l
         """
 
-        max_window = 0
-        unique = set()
-        l, r = 0,0
+        substring_set = set()
+        longest_substring = 0
+        l = 0
 
-        """
-       "abcabcbb"
-        ^
-           ^
-         3
-        unique {a,bc}
-           """
-        while r < len(s):
+        for r in range(len(s)):
+            if s[r] not in substring_set:
+                longest_substring = max(longest_substring, r - l + 1)
+                substring_set.add(s[r])
+            else:
+                while s[r] in substring_set:
+                    substring_set.remove(s[l])
+                    l +=1
+                substring_set.add(s[r])
+            print(substring_set)
+
+        return longest_substring
+
             
-            
-            #increase substring without duplicate
-            while r < len(s) and s[r] not in unique:
-                unique.add(s[r])
-                r +=1
-
-            max_window = max(max_window, r - l)
-            print(l,r,max_window)
-
-            #remove duplicate
-
-            while r < len(s) and s[r] in unique:
-                unique.remove(s[l])
-                l +=1 
-
-        return max_window
