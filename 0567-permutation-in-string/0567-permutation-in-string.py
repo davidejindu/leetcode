@@ -17,8 +17,6 @@ class Solution:
 
         for char in s1:
             s1_map[char] += 1
-        s1_sum = sum(s1_map.values())
-        s2_sum = 0
 
         """
          abcdeabcdx
@@ -26,18 +24,15 @@ class Solution:
           r
         s1_map = {a:2,b:2, c:2, d:2, x:1, e:1}
         s2_map = {a:2, b:2, c:2,d:2, e:1, x:1}
-        s1_sum = 10
-        s2_sum = 10
+  
         """
 
         for r in range(len(s2)):
             s2_map[s2[r]] +=1
-            s2_sum +=1
-        
+    
 
-            if s2_sum == s1_sum and not s2_map == s1_map:
+            if r - l + 1 > len(s1) and not s2_map == s1_map:
                  s2_map[s2[l]] -=1
-                 s2_sum -=1
                  if s2_map[s2[l]] == 0:
                     s2_map.pop(s2[l])
                  l +=1
