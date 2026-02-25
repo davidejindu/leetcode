@@ -1,55 +1,54 @@
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
-        
-       
+        """
+        s = "ADOBECODEBANC", t = "ABC"
+             l
+             r
 
-        if len(s) < len(t):
-            return ""
+        countT = {A:1, B:1, C:1}
+        countS = {A: 1, B:2, C:1}
+        have = 3
+        need = 2
+        shouldn't have be sum not len?
+        if its len then it wont account for multiple key values
 
-        if len(s) == len(t) and s == t:
-            return s
 
-        countT, window = {}, {}
-        l,r = 0,0
-        minWindow = len(s) + 1
-     
-        min_substring = ""
 
+        """
+
+        l = 0
+        result = [-1,-1]
+        minimum_substring = float('inf')
+        countT = defaultdict(int)
+        countS = defaultdict(int)
 
         for char in t:
-            countT[char] = countT.get(char,0) + 1
+            countT[char] +=1
 
-        have,need = 0, len(countT)
+        need, have = len(countT), 0
 
-        while r < len(s):
-            char = s[r]
-            window[char] = window.get(char,0) + 1
 
-            if char in countT and window[char] == countT[char]:
+
+
+        for r in range(len(s)):
+            countS[s[r]] +=1
+            
+            if s[r] in countT and countS[s[r]] == countT[s[r]]:
                 have +=1
 
-            r+=1
             while have == need:
-                if (r - l ) < minWindow:
-                    minWindow = r - l
-                    min_substring = s[l:r]
-            
-                window[s[l]] -=1
+                if r - l + 1 < minimum_substring:
+                    minimum_substring = r - l + 1
+                    result = [l,r]
 
-                if s[l] in countT and window[s[l]] < countT[s[l]]:
+                countS[s[l]] -=1
+
+                if s[l] in countT and countS[s[l]] < countT[s[l]]:
                     have -=1
+                l +=1
 
-                l +=1 
-                print(l,r)
-                
-
-        return min_substring
-        
-                    
-
-        
-
-
-
-
-
+        if minimum_substring == float('inf'):
+            return ""
+        else:
+            l, r = result
+            return s[l:r +1]
