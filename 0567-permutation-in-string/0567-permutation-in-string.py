@@ -1,51 +1,50 @@
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
         """
-        make hashmap of s1
+        create a hashmap for s1
+        so do sliding window hashmap where you compare the len of s1
+        with hashmap of s1
 
-        loop through s2 and append to window hashmap
-        if at any point window == s1 hashmap we found a permutation
-        if hashmap r - l + 1 == len(s1) increment l
-
-        s2 = dcda
-              l
-                r   
+       """
 
 
-        s1 = adc
-
-        permutation_map = {a:1,d:1, c:1}
-        window = {d:1,c:1, a:1 }
-        3
-        3
-       
-        """
-
-        permutation_map = collections.defaultdict(int)
-        window = collections.defaultdict(int)
+        s1_map = defaultdict(int)
+        s2_map = defaultdict(int)
         l = 0
-        count = 0
 
+        if len(s1) > len(s2) :
+            return False
 
         for char in s1:
-            permutation_map[char] +=1
+            s1_map[char] += 1
+        s1_sum = sum(s1_map.values())
+        s2_sum = 0
+
+        """
+         abcdeabcdx
+         l
+          r
+        s1_map = {a:2,b:2, c:2, d:2, x:1, e:1}
+        s2_map = {a:2, b:2, c:2,d:2, e:1, x:1}
+        s1_sum = 10
+        s2_sum = 10
+        """
 
         for r in range(len(s2)):
+            s2_map[s2[r]] +=1
+            s2_sum +=1
+        
 
-            window[s2[r]] +=1
+            if s2_sum == s1_sum and not s2_map == s1_map:
+                 s2_map[s2[l]] -=1
+                 s2_sum -=1
+                 if s2_map[s2[l]] == 0:
+                    s2_map.pop(s2[l])
+                 l +=1
 
-            
-            
-           # print(window, permutation_map, len(s1), r - l + 1)
+          
 
-            if r - l + 1 == len(s1) and not window == permutation_map:
-                window[s2[l]] -=1
-                if not window[s2[l]]:
-                    window.pop(s2[l])
-                l+=1
-                count -=1
-
-            if window == permutation_map:
+            if s2_map == s1_map:
                 return True
 
 
