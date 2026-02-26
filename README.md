@@ -55,6 +55,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0200-number-of-islands](https://github.com/davidejindu/leetcode/tree/master/0200-number-of-islands) |
 | [0217-contains-duplicate](https://github.com/davidejindu/leetcode/tree/master/0217-contains-duplicate) |
 | [0238-product-of-array-except-self](https://github.com/davidejindu/leetcode/tree/master/0238-product-of-array-except-self) |
+| [0239-sliding-window-maximum](https://github.com/davidejindu/leetcode/tree/master/0239-sliding-window-maximum) |
 | [0347-top-k-frequent-elements](https://github.com/davidejindu/leetcode/tree/master/0347-top-k-frequent-elements) |
 | [0704-binary-search](https://github.com/davidejindu/leetcode/tree/master/0704-binary-search) |
 | [0747-min-cost-climbing-stairs](https://github.com/davidejindu/leetcode/tree/master/0747-min-cost-climbing-stairs) |
@@ -117,6 +118,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Heap (Priority Queue)
 |  |
 | ------- |
+| [0239-sliding-window-maximum](https://github.com/davidejindu/leetcode/tree/master/0239-sliding-window-maximum) |
 | [0347-top-k-frequent-elements](https://github.com/davidejindu/leetcode/tree/master/0347-top-k-frequent-elements) |
 | [0743-network-delay-time](https://github.com/davidejindu/leetcode/tree/master/0743-network-delay-time) |
 | [1574-maximum-product-of-two-elements-in-an-array](https://github.com/davidejindu/leetcode/tree/master/1574-maximum-product-of-two-elements-in-an-array) |
@@ -176,6 +178,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0003-longest-substring-without-repeating-characters](https://github.com/davidejindu/leetcode/tree/master/0003-longest-substring-without-repeating-characters) |
 | [0076-minimum-window-substring](https://github.com/davidejindu/leetcode/tree/master/0076-minimum-window-substring) |
+| [0239-sliding-window-maximum](https://github.com/davidejindu/leetcode/tree/master/0239-sliding-window-maximum) |
 | [0424-longest-repeating-character-replacement](https://github.com/davidejindu/leetcode/tree/master/0424-longest-repeating-character-replacement) |
 | [0567-permutation-in-string](https://github.com/davidejindu/leetcode/tree/master/0567-permutation-in-string) |
 | [0904-fruit-into-baskets](https://github.com/davidejindu/leetcode/tree/master/0904-fruit-into-baskets) |
@@ -211,4 +214,12 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0042-trapping-rain-water](https://github.com/davidejindu/leetcode/tree/master/0042-trapping-rain-water) |
+## Queue
+|  |
+| ------- |
+| [0239-sliding-window-maximum](https://github.com/davidejindu/leetcode/tree/master/0239-sliding-window-maximum) |
+## Monotonic Queue
+|  |
+| ------- |
+| [0239-sliding-window-maximum](https://github.com/davidejindu/leetcode/tree/master/0239-sliding-window-maximum) |
 <!---LeetCode Topics End-->
