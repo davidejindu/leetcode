@@ -62,6 +62,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0704-binary-search](https://github.com/davidejindu/leetcode/tree/master/0704-binary-search) |
 | [0739-daily-temperatures](https://github.com/davidejindu/leetcode/tree/master/0739-daily-temperatures) |
 | [0747-min-cost-climbing-stairs](https://github.com/davidejindu/leetcode/tree/master/0747-min-cost-climbing-stairs) |
+| [0853-car-fleet](https://github.com/davidejindu/leetcode/tree/master/0853-car-fleet) |
 | [0875-koko-eating-bananas](https://github.com/davidejindu/leetcode/tree/master/0875-koko-eating-bananas) |
 | [0904-fruit-into-baskets](https://github.com/davidejindu/leetcode/tree/master/0904-fruit-into-baskets) |
 | [1011-capacity-to-ship-packages-within-d-days](https://github.com/davidejindu/leetcode/tree/master/1011-capacity-to-ship-packages-within-d-days) |
@@ -92,6 +93,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0217-contains-duplicate](https://github.com/davidejindu/leetcode/tree/master/0217-contains-duplicate) |
 | [0242-valid-anagram](https://github.com/davidejindu/leetcode/tree/master/0242-valid-anagram) |
 | [0347-top-k-frequent-elements](https://github.com/davidejindu/leetcode/tree/master/0347-top-k-frequent-elements) |
+| [0853-car-fleet](https://github.com/davidejindu/leetcode/tree/master/0853-car-fleet) |
 | [1574-maximum-product-of-two-elements-in-an-array](https://github.com/davidejindu/leetcode/tree/master/1574-maximum-product-of-two-elements-in-an-array) |
 ## String
 |  |
@@ -219,11 +221,13 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0150-evaluate-reverse-polish-notation](https://github.com/davidejindu/leetcode/tree/master/0150-evaluate-reverse-polish-notation) |
 | [0155-min-stack](https://github.com/davidejindu/leetcode/tree/master/0155-min-stack) |
 | [0739-daily-temperatures](https://github.com/davidejindu/leetcode/tree/master/0739-daily-temperatures) |
+| [0853-car-fleet](https://github.com/davidejindu/leetcode/tree/master/0853-car-fleet) |
 ## Monotonic Stack
 |  |
 | ------- |
 | [0042-trapping-rain-water](https://github.com/davidejindu/leetcode/tree/master/0042-trapping-rain-water) |
 | [0739-daily-temperatures](https://github.com/davidejindu/leetcode/tree/master/0739-daily-temperatures) |
+| [0853-car-fleet](https://github.com/davidejindu/leetcode/tree/master/0853-car-fleet) |
 ## Queue
 |  |
 | ------- |
