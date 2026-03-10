@@ -6,31 +6,22 @@
 #         self.right = right
 class Solution:
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
-        self.largest_diameter = 0
-        """
+        self.max_diameter = 0
 
-        you want to make a global variable for largest diameter
-        the diameter is just the height of left and right child added together
-        
+        def height(root):
 
-
-        """
-
-        def dfs(node):
-
-            if node is None:
+            if not root:
                 return 0
 
-            left = dfs(node.left)
-            right = dfs(node.right)
+            leftHeight = height(root.left)
+            rightHeight = height(root.right)
 
-            self.largest_diameter = max(self.largest_diameter,left + right)
+            diameter = leftHeight + rightHeight
+            self.max_diameter = max(diameter, self.max_diameter)
+
+            return 1 + max(leftHeight, rightHeight)
+
+        height(root)
 
 
-            return 1 + max(left,right)
-
-        dfs(root)
-        return self.largest_diameter
-
-
-        
+        return self.max_diameter
