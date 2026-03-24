@@ -6,36 +6,19 @@
 #         self.right = right
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-
-        """
-
-        start from root
-
-        if root.left and root.left.val > root:
-            return false
-
-        if root.right and root.right.value >:
-            return false
-
-        maybe make global right nodes list and global left nodes list
-        if its less than any of the nodes in the list 
-
-        """
-
-        def valid_BST(node,minn,maxx):
-            if node is None:
+        
+        
+        def dfs(node, minVal, maxVal):
+            if not node:
                 return True
 
-            
-            if node.val >= maxx or node.val <= minn:
+            if node.val <= minVal or node.val >= maxVal:
                 return False
 
-            return valid_BST(node.left, minn, node.val) and valid_BST(node.right, node.val, maxx)
+
+            return (dfs(node.left, minVal, node.val) and
+            dfs(node.right, node.val, maxVal))
 
 
-        return valid_BST(root,float('-inf'), float('inf'))
 
-     
-        
-            
-        
+        return dfs(root, float('-inf'), float('inf'))
