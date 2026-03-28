@@ -17,6 +17,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0543-diameter-of-binary-tree](https://github.com/davidejindu/leetcode/tree/master/0543-diameter-of-binary-tree) |
 | [0572-subtree-of-another-tree](https://github.com/davidejindu/leetcode/tree/master/0572-subtree-of-another-tree) |
 | [0617-merge-two-binary-trees](https://github.com/davidejindu/leetcode/tree/master/0617-merge-two-binary-trees) |
+| [0703-kth-largest-element-in-a-stream](https://github.com/davidejindu/leetcode/tree/master/0703-kth-largest-element-in-a-stream) |
 | [1448-count-good-nodes-in-binary-tree](https://github.com/davidejindu/leetcode/tree/master/1448-count-good-nodes-in-binary-tree) |
 ## Depth-First Search
 |  |
@@ -66,6 +67,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0543-diameter-of-binary-tree](https://github.com/davidejindu/leetcode/tree/master/0543-diameter-of-binary-tree) |
 | [0572-subtree-of-another-tree](https://github.com/davidejindu/leetcode/tree/master/0572-subtree-of-another-tree) |
 | [0617-merge-two-binary-trees](https://github.com/davidejindu/leetcode/tree/master/0617-merge-two-binary-trees) |
+| [0703-kth-largest-element-in-a-stream](https://github.com/davidejindu/leetcode/tree/master/0703-kth-largest-element-in-a-stream) |
 | [1448-count-good-nodes-in-binary-tree](https://github.com/davidejindu/leetcode/tree/master/1448-count-good-nodes-in-binary-tree) |
 ## Array
 |  |
@@ -171,6 +173,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0023-merge-k-sorted-lists](https://github.com/davidejindu/leetcode/tree/master/0023-merge-k-sorted-lists) |
 | [0239-sliding-window-maximum](https://github.com/davidejindu/leetcode/tree/master/0239-sliding-window-maximum) |
 | [0347-top-k-frequent-elements](https://github.com/davidejindu/leetcode/tree/master/0347-top-k-frequent-elements) |
+| [0703-kth-largest-element-in-a-stream](https://github.com/davidejindu/leetcode/tree/master/0703-kth-largest-element-in-a-stream) |
 | [0743-network-delay-time](https://github.com/davidejindu/leetcode/tree/master/0743-network-delay-time) |
 | [1574-maximum-product-of-two-elements-in-an-array](https://github.com/davidejindu/leetcode/tree/master/1574-maximum-product-of-two-elements-in-an-array) |
 ## Bucket Sort
@@ -251,6 +254,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0098-validate-binary-search-tree](https://github.com/davidejindu/leetcode/tree/master/0098-validate-binary-search-tree) |
 | [0230-kth-smallest-element-in-a-bst](https://github.com/davidejindu/leetcode/tree/master/0230-kth-smallest-element-in-a-bst) |
 | [0235-lowest-common-ancestor-of-a-binary-search-tree](https://github.com/davidejindu/leetcode/tree/master/0235-lowest-common-ancestor-of-a-binary-search-tree) |
+| [0703-kth-largest-element-in-a-stream](https://github.com/davidejindu/leetcode/tree/master/0703-kth-largest-element-in-a-stream) |
 ## Union-Find
 |  |
 | ------- |
@@ -300,6 +304,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0155-min-stack](https://github.com/davidejindu/leetcode/tree/master/0155-min-stack) |
+| [0703-kth-largest-element-in-a-stream](https://github.com/davidejindu/leetcode/tree/master/0703-kth-largest-element-in-a-stream) |
 | [0981-time-based-key-value-store](https://github.com/davidejindu/leetcode/tree/master/0981-time-based-key-value-store) |
 ## Math
 |  |
@@ -327,4 +332,8 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0023-merge-k-sorted-lists](https://github.com/davidejindu/leetcode/tree/master/0023-merge-k-sorted-lists) |
+## Data Stream
+|  |
+| ------- |
+| [0703-kth-largest-element-in-a-stream](https://github.com/davidejindu/leetcode/tree/master/0703-kth-largest-element-in-a-stream) |
 <!---LeetCode Topics End-->
