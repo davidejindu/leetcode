@@ -97,6 +97,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0153-find-minimum-in-rotated-sorted-array](https://github.com/davidejindu/leetcode/tree/master/0153-find-minimum-in-rotated-sorted-array) |
 | [0167-two-sum-ii-input-array-is-sorted](https://github.com/davidejindu/leetcode/tree/master/0167-two-sum-ii-input-array-is-sorted) |
 | [0200-number-of-islands](https://github.com/davidejindu/leetcode/tree/master/0200-number-of-islands) |
+| [0212-word-search-ii](https://github.com/davidejindu/leetcode/tree/master/0212-word-search-ii) |
 | [0215-kth-largest-element-in-an-array](https://github.com/davidejindu/leetcode/tree/master/0215-kth-largest-element-in-an-array) |
 | [0217-contains-duplicate](https://github.com/davidejindu/leetcode/tree/master/0217-contains-duplicate) |
 | [0238-product-of-array-except-self](https://github.com/davidejindu/leetcode/tree/master/0238-product-of-array-except-self) |
@@ -168,6 +169,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0131-palindrome-partitioning](https://github.com/davidejindu/leetcode/tree/master/0131-palindrome-partitioning) |
 | [0208-implement-trie-prefix-tree](https://github.com/davidejindu/leetcode/tree/master/0208-implement-trie-prefix-tree) |
 | [0211-design-add-and-search-words-data-structure](https://github.com/davidejindu/leetcode/tree/master/0211-design-add-and-search-words-data-structure) |
+| [0212-word-search-ii](https://github.com/davidejindu/leetcode/tree/master/0212-word-search-ii) |
 | [0242-valid-anagram](https://github.com/davidejindu/leetcode/tree/master/0242-valid-anagram) |
 | [0424-longest-repeating-character-replacement](https://github.com/davidejindu/leetcode/tree/master/0424-longest-repeating-character-replacement) |
 | [0567-permutation-in-string](https://github.com/davidejindu/leetcode/tree/master/0567-permutation-in-string) |
@@ -244,6 +246,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0036-valid-sudoku](https://github.com/davidejindu/leetcode/tree/master/0036-valid-sudoku) |
 | [0079-word-search](https://github.com/davidejindu/leetcode/tree/master/0079-word-search) |
 | [0200-number-of-islands](https://github.com/davidejindu/leetcode/tree/master/0200-number-of-islands) |
+| [0212-word-search-ii](https://github.com/davidejindu/leetcode/tree/master/0212-word-search-ii) |
 ## Binary Search
 |  |
 | ------- |
@@ -403,9 +406,11 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0079-word-search](https://github.com/davidejindu/leetcode/tree/master/0079-word-search) |
 | [0090-subsets-ii](https://github.com/davidejindu/leetcode/tree/master/0090-subsets-ii) |
 | [0131-palindrome-partitioning](https://github.com/davidejindu/leetcode/tree/master/0131-palindrome-partitioning) |
+| [0212-word-search-ii](https://github.com/davidejindu/leetcode/tree/master/0212-word-search-ii) |
 ## Trie
 |  |
 | ------- |
 | [0208-implement-trie-prefix-tree](https://github.com/davidejindu/leetcode/tree/master/0208-implement-trie-prefix-tree) |
 | [0211-design-add-and-search-words-data-structure](https://github.com/davidejindu/leetcode/tree/master/0211-design-add-and-search-words-data-structure) |
+| [0212-word-search-ii](https://github.com/davidejindu/leetcode/tree/master/0212-word-search-ii) |
 <!---LeetCode Topics End-->
