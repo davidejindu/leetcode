@@ -1,34 +1,45 @@
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
 
-        """
-        dfs 
-        if grid[m][n] == 1 
-        increment num of islands
-        make all the areas around it 0 so it doesnt count as another island
+        ROWS, COLS = len(grid), len(grid[0])
+        islands = 0
+        visited = set()
 
-        """
-        
-        row, column = len(grid), len(grid[0])
-        def dfs(i,j):
 
-            if i >= row or i < 0 or j >= column or j < 0 or grid[i][j] == "0":
-                return
+        def bfs(r, c):
+            queue = deque()
+            queue.append((r,c))
+            visited.add((r,c))
+
+            directions = [[1,0], [-1, 0], [0, 1], [0, -1]]
+
+            while queue:
+                row, col = queue.popleft()
+
+                for dr, dc in directions:
+                    nei_row, nei_col = row + dr, col + dc
+
+                    if (0 <= nei_row < ROWS and 0 <= nei_col < COLS and
+                        (nei_row,nei_col) not in visited and grid[nei_row][nei_col] == "1"):
+                        queue.append((nei_row, nei_col)) 
+                        visited.add((nei_row, nei_col))
+
+
+
+
+
+
 
             
 
-            else:
-                grid[i][j] = "0"
-                dfs(i+1,j)
-                dfs(i-1,j)
-                dfs(i,j+1)
-                dfs(i,j-1)
 
-        num_of_islands = 0
-        for i in range(len(grid)):
-            for j in range(len(grid[0])):
-                if grid[i][j] == "1":
-                    num_of_islands +=1
-                    dfs(i,j)
 
-        return num_of_islands
+
+        for r in range(ROWS):
+            for c in range(COLS):
+                if (r,c) not in visited and grid[r][c] == "1":
+                    bfs(r,c)
+                    islands +=1
+
+        return islands
+
