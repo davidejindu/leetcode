@@ -38,6 +38,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0547-number-of-provinces](https://github.com/davidejindu/leetcode/tree/master/0547-number-of-provinces) |
 | [0572-subtree-of-another-tree](https://github.com/davidejindu/leetcode/tree/master/0572-subtree-of-another-tree) |
 | [0617-merge-two-binary-trees](https://github.com/davidejindu/leetcode/tree/master/0617-merge-two-binary-trees) |
+| [0695-max-area-of-island](https://github.com/davidejindu/leetcode/tree/master/0695-max-area-of-island) |
 | [0743-network-delay-time](https://github.com/davidejindu/leetcode/tree/master/0743-network-delay-time) |
 | [1448-count-good-nodes-in-binary-tree](https://github.com/davidejindu/leetcode/tree/master/1448-count-good-nodes-in-binary-tree) |
 ## Breadth-First Search
@@ -51,6 +52,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0226-invert-binary-tree](https://github.com/davidejindu/leetcode/tree/master/0226-invert-binary-tree) |
 | [0547-number-of-provinces](https://github.com/davidejindu/leetcode/tree/master/0547-number-of-provinces) |
 | [0617-merge-two-binary-trees](https://github.com/davidejindu/leetcode/tree/master/0617-merge-two-binary-trees) |
+| [0695-max-area-of-island](https://github.com/davidejindu/leetcode/tree/master/0695-max-area-of-island) |
 | [0743-network-delay-time](https://github.com/davidejindu/leetcode/tree/master/0743-network-delay-time) |
 | [1448-count-good-nodes-in-binary-tree](https://github.com/davidejindu/leetcode/tree/master/1448-count-good-nodes-in-binary-tree) |
 ## Binary Tree
@@ -105,6 +107,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0287-find-the-duplicate-number](https://github.com/davidejindu/leetcode/tree/master/0287-find-the-duplicate-number) |
 | [0347-top-k-frequent-elements](https://github.com/davidejindu/leetcode/tree/master/0347-top-k-frequent-elements) |
 | [0621-task-scheduler](https://github.com/davidejindu/leetcode/tree/master/0621-task-scheduler) |
+| [0695-max-area-of-island](https://github.com/davidejindu/leetcode/tree/master/0695-max-area-of-island) |
 | [0704-binary-search](https://github.com/davidejindu/leetcode/tree/master/0704-binary-search) |
 | [0739-daily-temperatures](https://github.com/davidejindu/leetcode/tree/master/0739-daily-temperatures) |
 | [0747-min-cost-climbing-stairs](https://github.com/davidejindu/leetcode/tree/master/0747-min-cost-climbing-stairs) |
@@ -247,6 +250,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0079-word-search](https://github.com/davidejindu/leetcode/tree/master/0079-word-search) |
 | [0200-number-of-islands](https://github.com/davidejindu/leetcode/tree/master/0200-number-of-islands) |
 | [0212-word-search-ii](https://github.com/davidejindu/leetcode/tree/master/0212-word-search-ii) |
+| [0695-max-area-of-island](https://github.com/davidejindu/leetcode/tree/master/0695-max-area-of-island) |
 ## Binary Search
 |  |
 | ------- |
@@ -307,6 +311,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0128-longest-consecutive-sequence](https://github.com/davidejindu/leetcode/tree/master/0128-longest-consecutive-sequence) |
 | [0200-number-of-islands](https://github.com/davidejindu/leetcode/tree/master/0200-number-of-islands) |
 | [0547-number-of-provinces](https://github.com/davidejindu/leetcode/tree/master/0547-number-of-provinces) |
+| [0695-max-area-of-island](https://github.com/davidejindu/leetcode/tree/master/0695-max-area-of-island) |
 ## Graph Theory
 |  |
 | ------- |
