@@ -1,53 +1,31 @@
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        """
-
-        if cycle then its false else true
-
-        [1,0]
-
-        make a list of state of the node
-
-        [UNVISTED, UNVISITED]
-
-        when checking node change the state to visiting
-        the check its neighbor 
-        if its neighbor is visited return true if its visiting return false
-        that means we went back to the node without returning making it a
-        cycle
-
-
-        """
         
-        courses = defaultdict(list)
+        courseMap = defaultdict(list)
 
-        for a,b in prerequisites:
-            courses[b].append(a)
+        for preq, course in prerequisites:
+            courseMap[course].append(preq)
 
-        states = ["UNVISITED"] * numCourses
+        visiting, visited = set(), set()
 
-        
-        def dfs(node):
+        def dfs(course):
+            if course in visiting:
+                return False
+            if course in visited:
+                return True
 
-            state = states[node]
+            visiting.add(course)
 
-            if state == "VISITING": return False
-
-            elif state == "VISITED": return True
-
-            states[node] = "VISITING"
-
-            for neighbor in courses[node]:
-                if not dfs(neighbor):
+            for preq in courseMap[course]:
+                if not dfs(preq):
                     return False
 
-            states[node] = "VISITED"
-            return True 
+            visiting.remove(course)
+            visited.add(course)
+            return True
 
-        for i in range(numCourses):
-            if not dfs(i):
+        for preq in range(numCourses):
+            if not dfs(preq):
                 return False
 
         return True
-
-
