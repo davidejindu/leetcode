@@ -1,19 +1,15 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        
         """
-        two pointers
-        if alnum check character.lower() if not equal return false
 
         A man, a plan, a canal: Panama
-        r
-                                     l
-        """
+        l
+                                     r
 
-        l,r = 0, len(s) - 1
+        """
+        l, r = 0, len(s) - 1
 
         while l < r:
-
             while l < r and not s[l].isalnum():
                 l +=1
 
@@ -27,5 +23,3 @@ class Solution:
             r -=1
 
         return True
-
-            
