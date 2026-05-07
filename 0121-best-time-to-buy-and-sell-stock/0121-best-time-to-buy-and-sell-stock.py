@@ -1,28 +1,42 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         """
-    start l , 0 and r at 1
-    if prices[l] < prices[r]:
-        maxProfit(maxProfix, prices[r] - prices[l])
 
-    maybe store the min_value if value is minimum then make l = to index of it
-    then keep looping r
-    [7,1,5,3,6,4]
-       l     r
+         7,1,5,3,6,4
+         l
+            r
+
+        minimum = 7
+        max = 5
+
+
+
+        want to keep track of minimum
+        only increase if r is less than minimum
+        keep getting max
+
+
+
         """
 
-        maxProfit = 0
-        l, r = 0,1 
+        max_profit = 0
+        l = 0
 
-        for r in range(len(prices)):
+        for r in range(1,len(prices)):
+            if prices[r] - prices[l] > 0:
+                max_profit = max(max_profit,prices[r] - prices[l] )
 
-            if prices[r] > prices[l]:
-                maxProfit = max(maxProfit, prices[r] - prices[l]) 
-            else:
+            if prices[r] < prices[l]:
                 l = r
-                
 
-        return maxProfit
+        return max_profit
+
+
+
+
+        return max_profit
+            
+
 
 
         
