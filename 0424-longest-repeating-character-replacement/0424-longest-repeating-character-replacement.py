@@ -1,49 +1,32 @@
 class Solution:
-    def characterReplacement(self, s: str, k: int) -> int: 
-
-        """
-        im thinking of hashmap
-        sliding window
-        for each value you add and append frequency of hashmap
-        if sum of hashmap values - the highest value is greater than k
-        that means that the window is too diverse and even with k it 
-        wont be able to get logest repeating character replacement
-
-        BAAA
+    def characterReplacement(self, s: str, k: int) -> int:
+        """"
+        AABABBA         k = 1
         l
-            r
-        count = {B:1, A:3}, result = 3 , sum = 4 , max = 2 , k = 1
-        """
-        count = defaultdict(int)
-        result = 0
-        l, r = 0,0
+        r
+
+         A:2, B:1 
+         length = 3
+          3 - 2 =< k
+         max = 3
+
+        keep getting the max values in hashmap
+        if the max value in hashmap 
+        get r - l + 1 - max_value in hashmap > l +=1 else get max lenght
+
+
+    """
+
+        window_map = {}
+        l = max_freq = max_replacement = 0
 
         for r in range(len(s)):
-            count[s[r]] +=1
-            if sum(count.values()) - max(count.values()) <= k:
-                result = max(result, r - l + 1)
+            window_map[s[r]] = 1 + window_map.get(s[r], 0)
+            max_freq = max(window_map.values())
+            if (r - l + 1) - max_freq <= k:
+                max_replacement = max(max_replacement, r - l + 1)
             else:
-                while sum(count.values()) - max(count.values()) > k:
-                    count[s[l]] -=1
-                    l +=1
+                window_map[s[l]] -=1
+                l +=1
 
-        return result
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        return max_replacement
