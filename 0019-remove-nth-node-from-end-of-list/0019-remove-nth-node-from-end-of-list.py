@@ -6,45 +6,43 @@
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         """
-        loop through linked list to get the count
-        after that the target is count - n
-        so then loop again until count == target
-        that means you are on the node before what you should remove
-        so change that next to be .next.next
 
-        1 -> 2 -> 3 -> 4 -> 5       n = 2
-                       ^
-                  
+        1,2,3,4,5  length = 5 n = 2 removal = 3
+        ^ ^ ^ ^
+        itll go one over so just keep a pointer of the one before it 
 
+        basically loop to get count of the list 
+        then do count - n to find out the node before the one you want to skip
 
-        count = 3
-        target = 3
+        if the count == n then that means your removing the head so just return head.next
+
         """
-        count = 0
 
-        curr = head
+        length = 0
+        dummy = head
 
-        while curr:
-            count +=1 
-            curr = curr.next
+        while dummy:
+            length +=1
+            dummy = dummy.next
 
-        if count == n:
+        if length == n:
             return head.next
 
-        target = count - n
+        removal = length - n
 
-        count = 0
-        node = head
         prev = None
-        while count < target:
+        curr = head
+        count = 0
+
+        while count < removal:
             count +=1
-            prev = node
-            node = node.next
+            prev = curr 
+            curr = curr.next 
 
-        prev.next = node.next
-
-        
+        prev.next = curr.next
 
         return head
-            
 
+
+
+        
