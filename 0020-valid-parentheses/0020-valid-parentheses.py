@@ -1,12 +1,21 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        
-        openToClose = {")": "(", "]": "[", "}": "{"}
+        """
+        so create a hashmap linking close to open
+        check if the current value is closed or open
+        if it is closed check if the top of stack matches open version
+        if not return false because its a closed bracket or incompatiable
+        else pop to the stack
+
+
+        """
+
+        closeToOpen = {")" : "(", "}" : "{", "]" : "["}
         stack = []
 
         for bracket in s:
-            if bracket in openToClose:
-                if stack and openToClose[bracket] == stack[-1]:
+            if bracket in closeToOpen:
+                if stack and closeToOpen[bracket] == stack[-1]:
                     stack.pop()
                 else:
                     return False
