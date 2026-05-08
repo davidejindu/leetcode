@@ -1,21 +1,21 @@
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
         """
+        4,5,6,7,0,1,2
+        l
+              m
+                    r
 
-        4,5,6,7,0,1,2   target = 0
-                l
-                  m
-                r
+        if mid > r then we know the left portion is sorted
+        so do if target > = num l and target < r
 
-        so if mid is greater than r we know that the left right portion is sorted
-        increasing order 
-        so if target is less than r  its in that range
-        thus l = mid + 1
-        now if target is greater than r then set r = m because its in that range
-        
+        else 
+        then the right portion is sorted
+        so do if target > mid and target <= r
+
+
+
         """
-
-
         l, r = 0, len(nums) - 1
 
         while l <= r:
@@ -25,7 +25,7 @@ class Solution:
                 return mid
 
             if nums[mid] > nums[r]:
-                if nums[l] <= target and target < nums[mid] :
+                if target >= nums[l] and target < nums[mid]:
                     r = mid - 1
                 else:
                     l = mid + 1
@@ -35,7 +35,4 @@ class Solution:
                     l = mid + 1
                 else:
                     r = mid - 1
-
-
-
         return -1
