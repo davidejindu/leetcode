@@ -7,34 +7,26 @@
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         """
+        can do iterative inorder
+        so stack would have 1 increment count
+        if count == k return node
 
-        make a queue append all values in root
-        then sort 
-        
-        then loop until k
-
-        that would be o(n log kn)
 
         """
 
+        stack = []
+        result = []
+        node = root
+        count = 0
 
-        queue = collections.deque()
-        kth_list = []
-        queue.append(root)
+        while stack or node:
+            while node:
+                stack.append(node)
+                node = node.left
 
-        while queue:
-            
-            for _ in range(len(queue)):
-
-                node = queue.popleft()
-                if node:
-                    kth_list.append(node.val)
-                    queue.append(node.left)
-                    queue.append(node.right)
-
-        
-        print(kth_list.sort())
-        return kth_list[k - 1]
-            
-
-        
+            count +=1
+            node = stack.pop()
+            result.append(node.val)
+            node = node.right
+            if count == k:
+                return result[-1]
