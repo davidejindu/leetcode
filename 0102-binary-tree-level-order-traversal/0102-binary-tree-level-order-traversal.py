@@ -4,35 +4,34 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-
-
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         """
-        make a queue FIFO
-        append root to it first
+        basically bfs since its level order
+        make a result array and for each node in the curr append it to temp array
+        then append tmp array to result 
+
+
+
+
         """
+        if not root:
+            return []
 
+        result = []
+        queue = deque([root])
 
-        queue = collections.deque()
-
-        queue.append(root)
-        
-        level_order_list = []
         while queue:
-            queue_list = []
+            temp = []
             for _ in range(len(queue)):
                 node = queue.popleft()
-                if node:
-                    queue_list.append(node.val)
+                temp.append(node.val)
+                if node.left:
                     queue.append(node.left)
+
+                if node.right:
                     queue.append(node.right)
 
-            if queue_list:
-                level_order_list.append(queue_list)
+            result.append(temp)
 
-        return level_order_list
-
-
-
-        
+        return result
