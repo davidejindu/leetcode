@@ -8,35 +8,63 @@
 class Codec:
 
     def serialize(self, root):
-        res = []
+        """Encodes a tree to a single string.
+        
+        :type root: TreeNode
+        :rtype: str
+        """
+        if not root:
+            return ""
+        result = []
 
         def dfs(node):
             if not node:
-                res.append("N")
-                return 
+                result.append("N")
+                return
+        
+            result.append(str(node.val))
 
-            res.append(str(node.val))
             dfs(node.left)
             dfs(node.right)
-
         dfs(root)
-        return ",".join(res)
+
+        return ",".join(result)
+        
 
     def deserialize(self, data):
-        self.index = 0
-        vals = data.split(",")
+        """Decodes your encoded data to tree.
+        
+        :type data: str
+        :rtype: TreeNode
+        """
+
+        if not data:
+            return None
+
+        values = data.split(",")
+        self.i = 0
 
         def dfs():
-            if vals[self.index] == "N":
-                self.index +=1
+            if values[self.i] == "N":
+                self.i +=1
                 return None
 
-            node = TreeNode(int(vals[self.index]))
-            self.index +=1
+            node = TreeNode(int(values[self.i]))
+            self.i +=1
+
             node.left = dfs()
             node.right = dfs()
             return node
+
         return dfs()
+
+
+        
+            
+
+
+
+        
         
 
 # Your Codec object will be instantiated and called as such:
