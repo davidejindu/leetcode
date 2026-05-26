@@ -11,37 +11,29 @@ class WordDictionary:
         
 
     def addWord(self, word: str) -> None:
-        curr = self.root
+        cur = self.root
 
         for char in word:
-            if char not in curr.children:
-                curr.children[char] = Node()
-            curr = curr.children[char]
+            if char not in cur.children:
+                cur.children[char] = Node()
+            cur = cur.children[char]
 
-        curr.end = True
+        cur.end = True
         
 
     def search(self, word: str) -> bool:
-        """
-        b a d
-        . a d
 
-
-        """
-
-        def dfs(j, root):
-
+        def dfs(j,root):
             curr = root
 
             for i in range(j,len(word)):
                 char = word[i]
-                
+
                 if char == ".":
                     for val in curr.children.values():
-                        if dfs(i+1, val):
+                        if dfs(i+1,val):
                             return True
                     return False
-
 
                 else:
                     if char not in curr.children:
@@ -51,7 +43,7 @@ class WordDictionary:
             return curr.end
 
         return dfs(0,self.root)
-    
+
         
 
 
