@@ -1,45 +1,63 @@
-class TrieNode:
+"""
+create a Node class which has its children and an endofword flag
+
+then create a root in the trie and set it equal to a empty Node
+
+then for insert you are going to loop through each character in word
+if its already a child of the cur then set set cur to that child 
+
+
+"""
+class Node:
     def __init__(self):
         self.children = {}
-        self.endOfWord = False
+        self.end = False
 
 class Trie:
 
     def __init__(self):
-        self.root = TrieNode()
-        
+        self.root = Node()
 
     def insert(self, word: str) -> None:
-        cur = self.root
+        curr = self.root
 
         for char in word:
-            if char not in cur.children:
-                cur.children[char] = TrieNode()
-            cur = cur.children[char]
+            if char not in curr.children:
+                curr.children[char] = Node()
+            curr = curr.children[char]
 
-        cur.endOfWord = True
+        curr.end = True
 
+    """
+    apple
+
+    {a:p, p: }
+
+
+    """
+        
 
     def search(self, word: str) -> bool:
-        cur = self.root
+        curr = self.root
 
         for char in word:
-            if char not in cur.children:
+            if char not in curr.children:
                 return False
-            cur = cur.children[char]
+            curr = curr.children[char]
 
-        return cur.endOfWord
+        return curr.end
         
 
     def startsWith(self, prefix: str) -> bool:
-        cur = self.root
+        curr = self.root
 
         for char in prefix:
-            if char not in cur.children:
+            if char not in curr.children:
                 return False
-            cur = cur.children[char]
+            curr = curr.children[char]
 
         return True
+
 
 
         
