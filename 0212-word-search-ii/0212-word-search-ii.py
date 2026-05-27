@@ -1,55 +1,56 @@
-class TrieNode:
+class Node:
+
     def __init__(self):
+        self.end = False
         self.children = {}
-        self.endOfWord = False
 
     def addWord(self,word):
         cur = self
 
         for char in word:
             if char not in cur.children:
-                cur.children[char] = TrieNode()
+                cur.children[char] = Node()
+
             cur = cur.children[char]
 
-        cur.endOfWord = True
+        cur.end = True
 
 class Solution:
     def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
-        root = TrieNode()
-
+        self.root = Node()
         for word in words:
-            root.addWord(word)
+            self.root.addWord(word)
 
-        ROWS, COLS = len(board), len(board[0])
-        result, visited = set(), set()
+        ROW, COL = len(board), len(board[0])
+        result, path = set(), set()
 
-        def dfs(r,c,node,word):
-            if (r < 0 or c < 0 or r == ROWS or c == COLS or
-                (r,c) in visited or board[r][c] not in node.children):
-                return
 
-            visited.add((r,c))
+        def dfs(node,word,r,c):
+            curr = node
+
+            if (0 > r or r >= ROW or
+                0 > c or c >= COL or
+                board[r][c] not in node.children or
+                (r,c) in path):
+                return 
+
+            path.add((r,c))
             word += board[r][c]
-            node = node.children[board[r][c]]
+            curr = curr.children[board[r][c]]
 
-            if node.endOfWord:
+            if curr.end:
                 result.add(word)
 
-            dfs(r + 1,c,node,word)
-            dfs(r - 1,c,node,word)
-            dfs(r,c + 1,node,word)
-            dfs(r,c - 1,node,word)
 
-            visited.remove((r,c))
+            dfs(curr,word,r+1,c)
+            dfs(curr,word,r-1,c)
+            dfs(curr,word,r,c+1)
+            dfs(curr,word,r,c-1)
+            path.remove((r,c))
 
-        
-        for r in range(ROWS):
-            for c in range(COLS):
-                dfs(r,c,root,"")
+        for r in range(ROW):
+            for c in range(COL):
+                dfs(self.root,"",r,c)
 
         return list(result)
-
-
-        
-
         
