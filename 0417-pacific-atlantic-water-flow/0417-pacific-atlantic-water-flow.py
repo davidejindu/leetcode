@@ -1,41 +1,62 @@
+"""
+pacific top and left
+atlantic bottom and right
+
+the value in cell is the height above seal level
+
+if neighboring cell height is <= current cell water can flow
+
+input grid
+
+output is 2D list of grid coordinates result where result[i] = [row,col]
+that water can flow from that cell to both pacific and atlantic oceans
+
+
+so instead of looping through all the cells start looping through the pacific and atlantic ocean do a dfs and add all the cells that are greater than the prevheight
+
+then check if there are r,c in both sets that match
+
+
+"""
 class Solution:
     def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
-        ROW, COL = len(heights), len(heights[0])
+
+        ROWS, COLS = len(heights), len(heights[0])
         pacific, atlantic = set(), set()
-        result = []
-        directions = [[1,0], [-1,0], [0,1], [0,-1]]
 
+        def dfs(r,c,visited,prevHeight):
+            if (0 > r or r >= ROWS or
+                0 > c or c >= COLS or
+                (r,c) in visited or
+                heights[r][c] < prevHeight):
+                return
 
-        def dfs(r,c,visit,prevHeight):
-            visit.add((r,c))
+            visited.add((r,c))
 
-            for dr, dc in directions:
-                nr, nc = dr + r, dc + c
+            dfs(r+1,c,visited,heights[r][c])
+            dfs(r-1,c,visited,heights[r][c])
+            dfs(r,c+1,visited,heights[r][c])
+            dfs(r,c-1,visited,heights[r][c])
 
-                if(0 <= nr < ROW and 
-                   0 <= nc < COL and
-                   (nr,nc) not in visit and
-                   prevHeight <= heights[nr][nc]):
-                   dfs(nr,nc,visit,heights[nr][nc])
-
-        for r in range(ROW):
-            dfs(r,0,pacific,heights[r][0])
-            dfs(r,COL - 1,atlantic,heights[r][COL - 1])
-            
-
-        for c in range(COL):
+        for c in range(COLS):
             dfs(0,c,pacific,heights[0][c])
-            dfs(ROW - 1,c,atlantic,heights[ROW - 1][c])
+            dfs(ROWS - 1,c,atlantic,heights[ROWS-1][c])
+
+        for r in range(ROWS):
+            dfs(r,0,pacific,heights[r][0])
+            dfs(r,COLS - 1,atlantic,heights[r][COLS-1])
 
 
-        for r in range(ROW):
-            for c in range(COL):
+        result = []
+        for r in range(ROWS):
+            for c in range(COLS):
                 if (r,c) in pacific and (r,c) in atlantic:
                     result.append((r,c))
+
 
         return result
 
 
 
 
-
+        
