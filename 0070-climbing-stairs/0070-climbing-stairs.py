@@ -7,6 +7,7 @@ class Solution:
                 return memo[x]
             else:
                 memo[x] = climb(x - 1) + climb(x - 2)
-                return memo[x]
+
+            return memo[x]
 
         return climb(n)
