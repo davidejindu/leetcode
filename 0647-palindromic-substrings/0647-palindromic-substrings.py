@@ -1,41 +1,37 @@
+"""
+expand technique
+
+and increment count
+
+"""
+
+
 class Solution:
     def countSubstrings(self, s: str) -> int:
-        """
+        palindromic_num = 0
 
-        a b c
-          i
-          i 
+        def expand(l,r):
+            count = 0
+            while 0 <= l and r < len(s) and s[l] == s[r]:
+                count +=1
+                l -=1
+                r +=1
 
-        count = 3
+            return count
 
-        aaa
-         i
-           i
-        count = 5
-
-
-
-        """
-
-        count = 0
 
         for i in range(len(s)):
-            l, r = i, i
+            palindromic_num += expand(i,i)
+            palindromic_num += expand(i, i +1)
 
-            while (0 <= l and r < len(s)) and s[r] == s[l]:
-                count +=1
-                l -= 1
-                r +=1
-
-            l, r = i, i + 1
-
-            while (0 <= l and r < len(s)) and s[r] == s[l]:
-                count +=1
-                l -= 1
-                r +=1
+        return palindromic_num
 
 
-        return count
 
 
-            
+
+
+
+
+
+        return palindromic_num
