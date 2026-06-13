@@ -338,6 +338,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0005-longest-palindromic-substring](https://github.com/davidejindu/leetcode/tree/master/0005-longest-palindromic-substring) |
 | [0022-generate-parentheses](https://github.com/davidejindu/leetcode/tree/master/0022-generate-parentheses) |
 | [0042-trapping-rain-water](https://github.com/davidejindu/leetcode/tree/master/0042-trapping-rain-water) |
+| [0062-unique-paths](https://github.com/davidejindu/leetcode/tree/master/0062-unique-paths) |
 | [0070-climbing-stairs](https://github.com/davidejindu/leetcode/tree/master/0070-climbing-stairs) |
 | [0091-decode-ways](https://github.com/davidejindu/leetcode/tree/master/0091-decode-ways) |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/davidejindu/leetcode/tree/master/0121-best-time-to-buy-and-sell-stock) |
@@ -460,6 +461,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Math
 |  |
 | ------- |
+| [0062-unique-paths](https://github.com/davidejindu/leetcode/tree/master/0062-unique-paths) |
 | [0070-climbing-stairs](https://github.com/davidejindu/leetcode/tree/master/0070-climbing-stairs) |
 | [0150-evaluate-reverse-polish-notation](https://github.com/davidejindu/leetcode/tree/master/0150-evaluate-reverse-polish-notation) |
 | [0268-missing-number](https://github.com/davidejindu/leetcode/tree/master/0268-missing-number) |
@@ -536,4 +538,8 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0070-climbing-stairs](https://github.com/davidejindu/leetcode/tree/master/0070-climbing-stairs) |
 | [0139-word-break](https://github.com/davidejindu/leetcode/tree/master/0139-word-break) |
 | [0509-fibonacci-number](https://github.com/davidejindu/leetcode/tree/master/0509-fibonacci-number) |
+## Combinatorics
+|  |
+| ------- |
+| [0062-unique-paths](https://github.com/davidejindu/leetcode/tree/master/0062-unique-paths) |
 <!---LeetCode Topics End-->
