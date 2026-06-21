@@ -1,32 +1,43 @@
+"""
+
+to get the product of each array except itself in i you have to get the postfrix and prefix
+
+start of by getting the prefix 
+
+if we are starting at beginning the prefix will just be 1 since we cant multiply by 0
+
+1 1 2 6
+this would be prefix
+
+create a prefix array just intialize it to all 1
+
+then start at index 1 and multiply it by 1 and make the new prefix be prefix * nums[i -1]
+
+
+1,2,3,4
+  ^
+1 12 8 6
+^
+
+postfix = 12
+
+"""
+
+
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        """"
-        must find the prefix and postfix of nums[i]
-        so create a prefix array itll be the same length but all 1
-
-        [1,1,8,6]
-             i
-
-        [1,2,3,4]
-               i
-        start traversing at index 1 
-        nums[i] nums[i] * nums[i -1]
-
-
-
-        """
-
-        prefix_list = [1] * len(nums)
+        result = [1] * len(nums)
         prefix = 1
+
         for i in range(1, len(nums)):
-            prefix *= nums[i - 1] 
-            prefix_list[i] *= prefix
+            prefix *= nums[i - 1]
+            result[i] = prefix
 
-
-        postfix = 1 
+        postfix = 1
 
         for i in range(len(nums) -2, -1, -1):
             postfix *= nums[i + 1]
-            prefix_list[i] *= postfix
+            result[i] *= postfix
 
-        return prefix_list
+        return result
+
