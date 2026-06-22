@@ -1,42 +1,30 @@
+"""
+
+7,1,5,3,6,4
+l
+r
+
+if its less than 0 make it 0
+
+so your gonna increment through prices with r pointer
+if r value is less than l than make l that thats only when you change it
+
+each time calculate profit if profit is greater than max_profit
+
+
+
+
+"""
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        """
-
-         7,1,5,3,6,4
-         l
-            r
-
-        minimum = 7
-        max = 5
-
-
-
-        want to keep track of minimum
-        only increase if r is less than minimum
-        keep getting max
-
-
-
-        """
-
-        max_profit = 0
+        max_money = 0
         l = 0
 
         for r in range(1,len(prices)):
-            if prices[r] - prices[l] > 0:
-                max_profit = max(max_profit,prices[r] - prices[l] )
+            profit = prices[r] - prices[l]
+            max_money = max(max_money, profit)
 
-            if prices[r] < prices[l]:
+            if prices[l] > prices[r]:
                 l = r
 
-        return max_profit
-
-
-
-
-        return max_profit
-            
-
-
-
-        
+        return max_money
