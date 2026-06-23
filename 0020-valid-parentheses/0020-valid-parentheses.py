@@ -1,25 +1,34 @@
+"""
+
+open brackets must be closed by the same bracket
+
+open brackets must be closed in correct order
+
+using a stack
+
+if these is not a stack and the bracket is closed we can return True since we cant open it
+
+"""
 class Solution:
     def isValid(self, s: str) -> bool:
-        """
-        so create a hashmap linking close to open
-        check if the current value is closed or open
-        if it is closed check if the top of stack matches open version
-        if not return false because its a closed bracket or incompatiable
-        else pop to the stack
-
-
-        """
-
-        closeToOpen = {")" : "(", "}" : "{", "]" : "["}
+        closeToOpen = {')': '(', '}': '{', ']': '['}
         stack = []
 
         for bracket in s:
-            if bracket in closeToOpen:
-                if stack and closeToOpen[bracket] == stack[-1]:
-                    stack.pop()
-                else:
-                    return False
-            else:
-                stack.append(bracket)
+            if stack:
+                if bracket in closeToOpen:
+                    if stack[-1] != closeToOpen[bracket]:
+                        return False
+                    else:
+                        stack.pop()
 
-        return not stack
+                else:
+                    stack.append(bracket)
+
+            else:
+                if bracket in closeToOpen:
+                    return False
+                else:
+                    stack.append(bracket)
+
+        return not len(stack)
