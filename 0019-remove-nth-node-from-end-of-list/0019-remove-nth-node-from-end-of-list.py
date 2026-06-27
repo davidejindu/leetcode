@@ -3,46 +3,48 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+"""
+remove the nth last node from the linkedlist
+
+1 2 3 4 5 
+      ^
+
+count = 3
+removal_point = 3
+
+basically loop through linkedlist to get the count
+after that go till you get to length of list - n
+when you get to len of list - n set the next node to the one after nth node
+
+if the length of list == n return head.next
+
+
+"""
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
-        """
 
-        1,2,3,4,5  length = 5 n = 2 removal = 3
-        ^ ^ ^ ^
-        itll go one over so just keep a pointer of the one before it 
+        count = 0
+        curr = head
 
-        basically loop to get count of the list 
-        then do count - n to find out the node before the one you want to skip
+        while curr:
+            count +=1
+            curr = curr.next
 
-        if the count == n then that means your removing the head so just return head.next
-
-        """
-
-        length = 0
-        dummy = head
-
-        while dummy:
-            length +=1
-            dummy = dummy.next
-
-        if length == n:
+        #if n == len of list we just return everything except the head
+        if n == count:
             return head.next
 
-        removal = length - n
+        #get removal point 
+        removal_point = (count - n) - 1
 
-        prev = None
-        curr = head
         count = 0
+        curr = head
 
-        while count < removal:
+        while count != removal_point:
             count +=1
-            prev = curr 
-            curr = curr.next 
+            curr = curr.next
 
-        prev.next = curr.next
+        curr.next = curr.next.next
 
         return head
-
-
-
         
