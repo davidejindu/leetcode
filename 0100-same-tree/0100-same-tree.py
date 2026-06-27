@@ -4,6 +4,19 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+"""
+if not p and q or not q and p:
+    return False
+
+if p.val != q.val:
+    return False
+
+if not p and not q:
+    return False
+
+
+
+"""
 class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         if not p and not q:
@@ -15,5 +28,6 @@ class Solution:
         if p.val != q.val:
             return False
 
-        return self.isSameTree(p.right,q.right) and self.isSameTree(p.left,q.left)
+        return self.isSameTree(p.left,q.left) and self.isSameTree(p.right,q.right)
+
         
