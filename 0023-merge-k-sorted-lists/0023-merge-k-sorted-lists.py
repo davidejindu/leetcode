@@ -3,65 +3,56 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+"""
+you want to go through two of the lists at a time and merge them in sorted order
+
+after that you want to make lists[i] = to the new merged list and then return lists[len(lists) - 1] this should contain the last index that has all the merged values
+
+
+[1,4,5],[1,3,4],[2,6]
+          i        i + 1
+
+merge(1,4,5) and merge(1,3,4)
+
+make i + 1 = 1,1,3,4,4,5  now lists is 
+
+[1,4,5], [1,1,3,4,4,5], [2,6]
+
+merge(1,1,3,4,4,5) and merge(2,6)
+
+[1,4,5],[1,1,3,4,4,5],  1,1,2,3,4,4,5,6
+
+
+"""
 class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
-        """
-        basically merge sort
-        keep sorting two of the lists
-        then change lists = to the merged lists keep looping until 1 list
-        meaning you have merged all of it then return
-
-
-        [1,4,5],[1,3,4],[2,6]
-                          i
-
-        temp_ lists = [[1,1,3,4,4,5], [2,6]]
-        
-        lists = [[1,1,3,4,4,5], [2,6]]
-                    i           i + 1
-        temp_lists = [1,1,2,3,4,4,5,6]
-
-        lists = temp_lists
-
-      
-
-
-
-        """
         if not lists:
-            return None
+            return
 
-        while len(lists) > 1:
-            temp_lists = []
+        for i in range(len(lists) - 1): 
+            l1, l2 = lists[i], lists[i + 1]
+            lists[i + 1] = self.mergeList(l1,l2)
 
-            for i in range(0, len(lists), 2):
-                l1 = lists[i]
-                l2 = lists[i + 1] if (i + 1) < len(lists) else None
-                temp_lists.append(self.mergedList(l1,l2))
-
-            lists = temp_lists
-
-        return lists[0]
+        return lists[-1]
 
 
-
-    def mergedList(self,l1,l2):
-        head = ListNode()
-        dummy = head
+    def mergeList(self,l1, l2):
+        dummy = ListNode()
+        curr = dummy
 
         while l1 and l2:
             if l1.val < l2.val:
-                dummy.next = l1
+                curr.next = l1
                 l1 = l1.next
             else:
-                dummy.next = l2
+                curr.next = l2
                 l2 = l2.next
+            curr = curr.next
 
-            dummy = dummy.next
+        if l1:
+            curr.next = l1
+        if l2:
+            curr.next = l2
 
-        if not l1:
-            dummy.next = l2
-        else:
-            dummy.next = l1
-
-        return head.next
+        return dummy.next
+        
