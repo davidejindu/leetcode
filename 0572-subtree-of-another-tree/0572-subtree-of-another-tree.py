@@ -6,19 +6,21 @@
 #         self.right = right
 class Solution:
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
-        def isSameTree(t1,t2):
-            if not t1 and not t2:
+
+        def isSameTree(p,q):
+            if not p and not q:
                 return True
 
-            if (not t1 and t2) or (t1 and not t2):
+            if (not p and q) or (p and not q):
                 return False
 
-            if t1.val != t2.val:
+            if p.val != q.val:
                 return False
 
-            return isSameTree(t1.left,t2.left) and isSameTree(t1.right,t2.right)
+            return isSameTree(p.left,q.left) and isSameTree(p.right,q.right)
 
-        def is_subtree(root):
+
+        def same_subroot(root):
             if not root:
                 return False
 
@@ -28,6 +30,9 @@ class Solution:
             if isSameTree(root,subRoot):
                 return True
 
-            return is_subtree(root.left) or is_subtree(root.right)
+            return same_subroot(root.left) or same_subroot(root.right)
 
-        return is_subtree(root)
+
+        return same_subroot(root)
+
+        
