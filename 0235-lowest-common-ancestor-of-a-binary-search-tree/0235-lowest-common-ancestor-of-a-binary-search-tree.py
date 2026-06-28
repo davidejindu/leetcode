@@ -4,19 +4,35 @@
 #         self.val = x
 #         self.left = None
 #         self.right = None
+"""
 
+1. if node.val > p.val and node.val > q.val
+    move node to the left
+
+    if node.val < p.val and node.val < q.val
+    mode node to the right
+
+    else 
+    return node
+
+
+
+
+"""
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        
-        curr = root
 
-        while curr:
-            if curr.val < p.val and curr.val < q.val:
-                curr = curr.right
+        if not root:
+            return
 
-            elif curr.val > p.val and curr.val > q.val:
-                curr = curr.left
+        while root:
+            if root.val > p.val and root.val > q.val:
+                root = root.left
+            elif root.val < p.val and root.val < q.val:
+                root = root.right
 
             else:
-                return curr
-            
+                return root
+
+    
+        
