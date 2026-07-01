@@ -4,31 +4,31 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+"""
+
+use the preorder and inorder arrays to construct the binary tree
+
+3,9,20,15,7
+  ^ 
+9 = root
+
+
+9,3,15,20,7
+  ^
+we know that the first value in preorder is the root then we 
+know everything till we reach the index of that root in inorder array is on the left of binary tree 
+
+"""
 class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
-        """
-        preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
-
-        so the root is always first index of preorder
-
-        so create tree where it starts root with preorder[0]
-
-        then we know everything to left of 3 in inorder is left subtree
-        everything to right of 3 in inorder is right
-
-        thus we should get index of preorder[0]
-
-        then recursve the root.left to make sure that it only captures left of it
-        then recurve the root.right to make sure that it only caputreus left of it
-        
-        
-        """
-
         if not preorder or not inorder:
-            return None
+            return 
 
         root = TreeNode(preorder[0])
-        mid = inorder.index(preorder[0])
-        root.left = self.buildTree(preorder[1:mid + 1], inorder[:mid])
-        root.right = self.buildTree(preorder[mid+1:],inorder[mid+1:])
+        index = inorder.index(root.val)
+        root.left = self.buildTree(preorder[1:index+1],inorder[:index])
+        root.right = self.buildTree(preorder[index+1:],inorder[index+1:])
         return root
+
+
+        
