@@ -4,10 +4,19 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+"""
+return max path of binary tree
+
+want to dfs and return node.val and max of node.right and node.left
+
+set the maxx equal to the max of left and right + node.val
+
+
+"""
 class Solution:
     def maxPathSum(self, root: Optional[TreeNode]) -> int:
-        self.result = root.val
-
+        self.maxx = 0
 
         def dfs(node):
             if not node:
@@ -16,13 +25,13 @@ class Solution:
             leftMax = dfs(node.left)
             rightMax = dfs(node.right)
 
-            leftMax  = max(leftMax,0)
-            rightMax = max(rightMax,0)
+            leftMax= max(leftMax, 0)
+            rightMax = max(rightMax, 0)
 
-            self.result = max(self.result, node.val+leftMax+rightMax)
 
-            return node.val + max(leftMax,rightMax)
+            self.maxx = max(self.maxx, node.val + leftMax + rightMax)
+
+            return node.val + max(leftMax, rightMax)
 
         dfs(root)
-        return self.result
-        
+        return self.maxx
