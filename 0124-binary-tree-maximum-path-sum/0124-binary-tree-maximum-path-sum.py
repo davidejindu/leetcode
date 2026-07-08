@@ -16,7 +16,8 @@ set the maxx equal to the max of left and right + node.val
 """
 class Solution:
     def maxPathSum(self, root: Optional[TreeNode]) -> int:
-        self.maxx = 0
+        self.result = root.val
+
 
         def dfs(node):
             if not node:
@@ -25,13 +26,12 @@ class Solution:
             leftMax = dfs(node.left)
             rightMax = dfs(node.right)
 
-            leftMax= max(leftMax, 0)
-            rightMax = max(rightMax, 0)
+            leftMax  = max(leftMax,0)
+            rightMax = max(rightMax,0)
 
+            self.result = max(self.result, node.val+leftMax+rightMax)
 
-            self.maxx = max(self.maxx, node.val + leftMax + rightMax)
-
-            return node.val + max(leftMax, rightMax)
+            return node.val + max(leftMax,rightMax)
 
         dfs(root)
-        return self.maxx
+        return self.result
