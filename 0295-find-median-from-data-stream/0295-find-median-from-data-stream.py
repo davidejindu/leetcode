@@ -1,36 +1,73 @@
+"""
+
+find the median of a list
+
+if its even get the average of the two middle values
+
+if its odd just get the middle value
+
+
+we are going to do this using two heaps
+
+small heap
+this will be a max heap so that when we get the first value we can check if its greater
+than the large heap
+
+large heap
+this will me a min heap so when we get the first value we can confirm its smaller than the 
+small heap
+
+we will originally add the value to the smallHeap
+
+we are going to check if the smallHeap is greater than 2 of the large Heap
+if so we are going to pop and then add to the large heap the value from small heap
+
+we are also going to check if the value in small heap is greater than value in large heap
+if so we are going to pop and add that value to small heap
+
+after that we will check if large heap is greater than small heap and if so we can pop 
+from large heap and add it to small heap
+
+
+2 3 4
+
+smallHeap = [-2]
+largeHeap = []
+
+"""
 class MedianFinder:
 
     def __init__(self):
-        self.largeHeap = []
         self.smallHeap = []
+        self.largeHeap = []
         
 
     def addNum(self, num: int) -> None:
-        heapq.heappush(self.smallHeap,-num)
+        heapq.heappush(self.smallHeap, -num)
 
-        # check if small heap len is greater 
         if len(self.smallHeap) - len(self.largeHeap) > 1:
-            large_num = -heapq.heappop(self.smallHeap)
-            heapq.heappush(self.largeHeap,large_num)
- 
-        #swap small heap great value with large heap great value
+            val = -heapq.heappop(self.smallHeap)
+            heapq.heappush(self.largeHeap, val)
+
         if self.largeHeap and -self.smallHeap[0] > self.largeHeap[0]:
-            large_num = -heapq.heappop(self.smallHeap)
-            heapq.heappush(self.largeHeap,large_num)
+            val = -heapq.heappop(self.smallHeap)
+            heapq.heappush(self.largeHeap, val)
 
+        if self.largeHeap and len(self.largeHeap) > len(self.smallHeap):
+            val = -heapq.heappop(self.largeHeap)
+            heapq.heappush(self.smallHeap, val)
 
-        #check if large heap len is greater
-        if len(self.largeHeap) > len(self.smallHeap):
-            small_num = -heapq.heappop(self.largeHeap)
-            heapq.heappush(self.smallHeap,small_num)
+        
         
 
     def findMedian(self) -> float:
+        length = len(self.smallHeap) + len(self.largeHeap)
 
-        if (len(self.largeHeap) + len(self.smallHeap)) % 2 == 0:
-            return (self.largeHeap[0] + -self.smallHeap[0]) / 2
-        else:
+        if length % 2 != 0:
             return -self.smallHeap[0]
+        else:
+            return ((-self.smallHeap[0]) + self.largeHeap[0]) / 2
+
         
 
 
