@@ -1,51 +1,48 @@
+"""
+going to see if word exists in grid
+
+backtrack 
+
+if i == len word return tru
+
+have a set to keep places you've already visited
+
+keep if the current word builder index is same value as word index
+
+
+
+
+"""
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
-        """
-        go through each row,col and dfs check each direction
-        backtrack
-
-        store the row col in a set to make sure we dont backtrack into same
-        row col on same path
-
-        if i == len word that means we reached the word so return true
-
-        if 0 <= r or r > row same for col
-        or same r c in path or word[i] != to the board number then 
-        return false
-
-        
-
-
-
-        """
-        ROW, COL = len(board), len(board[0])
-        path = set()
-
-
-        def dfs(i,r,c):
+        visited = set()
+        ROWS, COLS = len(board), len(board[0])
+        def backtrack(r, c, i, currentWord):
             if i == len(word):
                 return True
 
-            if (0 > r or r >= ROW or
-                0 > c or c >= COL or
-                (r,c) in path or
-                word[i] != board[r][c]):
-                return False
+            if (0 > r or r >= ROWS or
+                0 > c or c >= COLS or
+                (r,c) in visited or
+                board[r][c] != word[i]):
+                return
 
-            path.add((r,c))
+            visited.add((r,c))
+            currentWord += board[r][c]
 
-            result = (dfs(i+1,r+1,c) or
-                      dfs(i+1,r-1,c) or
-                      dfs(i+1,r,c+1) or
-                      dfs(i +1,r,c-1))
+            result = (backtrack(r + 1, c, i + 1, currentWord) or
+                    backtrack(r, c - 1, i + 1, currentWord) or
+                    backtrack(r, c + 1, i + 1, currentWord) or 
+                    backtrack(r - 1, c, i + 1, currentWord))
 
-            path.remove((r,c))
+            visited.remove((r,c))
+
             return result
-
-
-        for r in range(ROW):
-            for c in range(COL):
-                if dfs(0,r,c):
+    
+        for r in range(ROWS):
+            for c in range(COLS):
+                if backtrack(r,c,0, ""):
                     return True
 
         return False
+    
