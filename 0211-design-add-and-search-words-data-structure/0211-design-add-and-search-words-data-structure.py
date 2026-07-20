@@ -1,8 +1,7 @@
 class Node:
-
     def __init__(self):
+        self.endOfWord = False
         self.children = {}
-        self.end = False
 
 class WordDictionary:
 
@@ -11,28 +10,30 @@ class WordDictionary:
         
 
     def addWord(self, word: str) -> None:
-        cur = self.root
+        curr = self.root
 
         for char in word:
-            if char not in cur.children:
-                cur.children[char] = Node()
-            cur = cur.children[char]
+            if char not in curr.children:
+                curr.children[char] = Node()
+            
+            curr = curr.children[char]
 
-        cur.end = True
-        
+        curr.endOfWord = True
+
 
     def search(self, word: str) -> bool:
+        
+        def dfs(index, child):
+            curr = child
 
-        def dfs(j,root):
-            curr = root
-
-            for i in range(j,len(word)):
+            for i in range(index, len(word)):
                 char = word[i]
 
                 if char == ".":
-                    for val in curr.children.values():
-                        if dfs(i+1,val):
+                    for child in curr.children.values():
+                        if dfs(i + 1, child):
                             return True
+
                     return False
 
                 else:
@@ -40,11 +41,10 @@ class WordDictionary:
                         return False
                     curr = curr.children[char]
 
-            return curr.end
 
-        return dfs(0,self.root)
+            return curr.endOfWord
 
-        
+        return dfs(0, self.root)
 
 
 # Your WordDictionary object will be instantiated and called as such:
