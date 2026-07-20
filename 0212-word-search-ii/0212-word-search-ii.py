@@ -1,56 +1,57 @@
-class Node:
+class TrieNode:
 
     def __init__(self):
-        self.end = False
         self.children = {}
+        self.endOfWord = False
 
     def addWord(self,word):
-        cur = self
+        curr = self
 
         for char in word:
-            if char not in cur.children:
-                cur.children[char] = Node()
+            if char not in curr.children:
+                curr.children[char] = TrieNode()
 
-            cur = cur.children[char]
+            curr = curr.children[char]
 
-        cur.end = True
+        curr.endOfWord = True
+
 
 class Solution:
     def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
-        self.root = Node()
+        ROWS, COLS = len(board), len(board[0])
+        result, visited = set(), set()
+        root = TrieNode()
+
         for word in words:
-            self.root.addWord(word)
-
-        ROW, COL = len(board), len(board[0])
-        result, path = set(), set()
+            root.addWord(word)
 
 
-        def dfs(node,word,r,c):
-            curr = node
-
-            if (0 > r or r >= ROW or
-                0 > c or c >= COL or
+        def dfs(r,c,node,word):
+            if (0 > r or r >= ROWS or
+                0 > c or c >= COLS or
                 board[r][c] not in node.children or
-                (r,c) in path):
-                return 
+                (r,c) in visited):
+                return
 
-            path.add((r,c))
+            visited.add((r,c))
+            node = node.children[board[r][c]]
             word += board[r][c]
-            curr = curr.children[board[r][c]]
 
-            if curr.end:
+            if node.endOfWord:
                 result.add(word)
 
+            dfs(r+1,c,node,word)
+            dfs(r-1,c,node,word)
+            dfs(r,c+1,node,word)
+            dfs(r,c-1,node,word)
 
-            dfs(curr,word,r+1,c)
-            dfs(curr,word,r-1,c)
-            dfs(curr,word,r,c+1)
-            dfs(curr,word,r,c-1)
-            path.remove((r,c))
 
-        for r in range(ROW):
-            for c in range(COL):
-                dfs(self.root,"",r,c)
+            visited.remove((r,c))
+
+
+        for r in range(ROWS):
+            for c in range(COLS):
+                dfs(r,c,root,"")
 
         return list(result)
         
