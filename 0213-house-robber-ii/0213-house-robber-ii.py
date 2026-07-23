@@ -1,18 +1,30 @@
+"""
+
+so you cannot rob both the first and last houses 
+or adjacent houses
+
+so basically do house robber but with nums[:len(nums)-1] and nums[1:]
+
+
+"""
 class Solution:
     def rob(self, nums: List[int]) -> int:
+
         if len(nums) == 1:
             return nums[0]
 
+
+        def house_robber(houses):
+            rob1, rob2 = 0, 0
+
+            for money in houses:
+                maxx = max(rob1 + money, rob2)
+
+                rob1 = rob2
+                rob2 = maxx
+
+            return rob2
+
+        return max(house_robber(nums[1:]), house_robber(nums[:len(nums) - 1]))
+
         
-
-        def maxHouse(nums):
-            prev1, prev2 = 0, 0
-            for i in range(len(nums)):
-                current = max(prev1 + nums[i], prev2)
-
-                prev1 = prev2
-                prev2 = current
-
-            return prev2
-
-        return max(maxHouse(nums[1:]), maxHouse(nums[:-1]))
