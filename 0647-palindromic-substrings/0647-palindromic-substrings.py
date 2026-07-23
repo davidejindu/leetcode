@@ -1,37 +1,21 @@
-"""
-expand technique
-
-and increment count
-
-"""
-
-
 class Solution:
     def countSubstrings(self, s: str) -> int:
-        palindromic_num = 0
-
-        def expand(l,r):
+        total_count = 0
+        
+        def is_palindrome(l,r):
             count = 0
-            while 0 <= l and r < len(s) and s[l] == s[r]:
+            
+            while l >= 0 and r < len(s) and s[l] == s[r]:
                 count +=1
                 l -=1
                 r +=1
 
             return count
 
-
         for i in range(len(s)):
-            palindromic_num += expand(i,i)
-            palindromic_num += expand(i, i +1)
-
-        return palindromic_num
+            total_count += (is_palindrome(i,i) + is_palindrome(i,i+1))
 
 
+        return total_count
 
 
-
-
-
-
-
-        return palindromic_num
