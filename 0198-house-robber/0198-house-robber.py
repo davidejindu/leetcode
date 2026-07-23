@@ -1,15 +1,29 @@
+"""
+    
+    1 2 3 1     output = 4
+
+    rob1, rob2, money, money + 1
+
+    
+
+
+"""
+
+
+
+
 class Solution:
     def rob(self, nums: List[int]) -> int:
-        if len(nums) == 1:
-            return nums[0]
+        rob1, rob2 = 0, 0
 
-        adj1 = nums[0]
-        adj2 = max(nums[0], nums[1])
 
-        for i in range(2, len(nums)):
-            current = max(nums[i] + adj1, adj2)
+        for money in nums:
+            maxx = max(money + rob1, rob2)
 
-            adj1 = adj2
-            adj2 = current 
+            rob1 = rob2
+            rob2 = maxx
 
-        return adj2
+        return rob2
+
+      
+   
