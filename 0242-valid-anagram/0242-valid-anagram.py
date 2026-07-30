@@ -1,14 +1,12 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        
-        countT, countS = {}, {}
+        countS = {}
+        countT = {}
 
-        for char in s:
-            countS[char] = 1 + countS.get(char,0)
+        for c in t:
+            countT[c] = 1 + countT.get(c, 0)
 
-        for char in t:
-            countT[char] = 1 + countT.get(char,0)
+        for c in s:
+            countS[c] = 1 + countS.get(c,0)
 
-        return countT == countS
-
-        
+        return countS == countT
