@@ -1,15 +1,33 @@
+"""
+
+check if nums[i] - 1 is in the list and if not 
+then loop and increment until the incremented number is not in nums
+keep track of max
+also turn list into nums since we are doing O(n) checks which is O(1) when in set
+
+input = [100, 4, 200, 1, 3, 2]
+     
+output = 4
+
+maxx = 1
+count = 1
+
+"""
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
-        maxCount = 0
-        nums_set = set(nums)
+        maxx = 0
+        num_set = set(nums)
 
-        for number in nums_set:
+        for value in num_set:
             count = 0
-            if number - 1 not in nums_set:
-                while number in nums_set:
-                    count +=1 
-                    number +=1
+            if value - 1 not in num_set:
+                while value in num_set:
+                    count +=1
+                    value +=1
 
-                maxCount = max(maxCount, count)
+            maxx = max(count, maxx)
 
-        return maxCount
+        return maxx
+
+
+        
