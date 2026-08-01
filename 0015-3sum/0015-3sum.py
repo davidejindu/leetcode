@@ -1,57 +1,59 @@
 """
--1,0,1,2,-1,-4
 
--4,-1,-1,0,1,2
-    i
-         l
-           r
-0
-[-1,-1,2]
+given an integer array nums, return all the triples such that their is no duplicates among the indexes
 
-two pointers but set one pointer at the beginning
+input = -1,0,1,2,-1,-4
 
-make sure the first pointer is never the same as the previous that might cause duplicates
+output = [[-1,-1,2],[-1,0,1]]
 
-when doing two pointers after getting a val that is 0 append it but then you 
-after getting target check if the l -1 == l if so you have to move l pointer again or duplicate
-everytime you get the target increment
+want to sort the array so that you can have a two sum approach
 
-also if l is < 0 increment if it is greater decrement the r
+0 0 0 0    val = 0
+i
+  j        
+       k
+
+result = [[-1,-1,2], [-1,0,1]]
+if i -1 and i == i - 1 continue so no duplicates
+
+make sure j is i + 1
+do a while j < k 
+
+if nums[i] + nums[j] + nums[k] == 0 then append to result
+elif value less than 0 increment j
+else decrement k
+also check to make sure nums[j] != nums[j+1] increment until its different
+
 """
-
-
-
-
 class Solution:
     def threeSum(self, nums: list[int]) -> list[list[int]]:
         nums.sort()
         result = []
 
         for i in range(len(nums)):
-            #never want to start off with same first value to prevent duplicate
-            if i > 0 and nums[i] == nums[i - 1]:
+            if i > 0  and nums[i-1] == nums[i]:
                 continue
 
-            l = i + 1
-            r = len(nums) - 1
+            j = i + 1
+            k = len(nums) - 1
 
-            while l < r:
-                val = nums[i] + nums[l] + nums[r]
+            while j < k:
+                value = nums[i] + nums[j] + nums[k]
 
-                if val == 0:
-                    result.append([nums[i],nums[l],nums[r]])
-                    l +=1
-                    while l < r and nums[l] == nums[l - 1]:
-                        l +=1
+                if value < 0:
+                    j +=1
+                elif value > 0:
+                    k -=1
 
-                elif val < 0:
-                    l +=1
                 else:
-                    r -=1
+                    result.append([nums[i],nums[j], nums[k]])
+                    j +=1
 
-            
+                    while j < k and nums[j-1] == nums[j]:
+                        j +=1
+
 
         return result
 
-
+            
         
