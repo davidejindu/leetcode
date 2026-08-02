@@ -1,30 +1,29 @@
 """
+want to max profit by choosing a single day to buy one stock and another day in the future to sell
+so want to buy low and sell high
 
-7,1,5,3,6,4
-l
-r
+return max profit you can achieve from this, if its negative return 0
 
-if its less than 0 make it 0
+input = 7, 1, 5, 3, 6, 4
+output = 5
 
-so your gonna increment through prices with r pointer
-if r value is less than l than make l that thats only when you change it
+buy at 1 and sell at 6
 
-each time calculate profit if profit is greater than max_profit
-
-
+have two pointers l and r 
+if prices[l] < prices[r]
+set l to r
+calculate maxx by doing prices[r] - prices[l]
 
 
 """
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        max_money = 0
-        l = 0
+        maxx = l = 0
 
-        for r in range(1,len(prices)):
-            profit = prices[r] - prices[l]
-            max_money = max(max_money, profit)
+        for r in range(1, len(prices)):
+            maxx = max(maxx, prices[r] - prices[l])
 
-            if prices[l] > prices[r]:
+            if prices[r] < prices[l]:
                 l = r
 
-        return max_money
+        return maxx
