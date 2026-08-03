@@ -1,43 +1,49 @@
 """
 
-AABABBA    k = 1
-l
-    r
+your given a string s and integer k choose any char of string and replace it with any upperchase english cahracter i can perform it at most k times
 
-5 - 3
-max_replacement = 2
-l = 0
+return the length of longest substring containing same letter after making k changes
+so i want to take the max character and subtract it by the window and if its less than or equal
+to k i can replace it by the substring to get the largest have a hashmap
 
-{A:2, B:0}
+input: "ABAB" k = 2
 
-window = 1
-so the only time i have to move l is if the size of window - 2 is greater than k
-at that point i want to get the max size
+output = 4
+
+A A B A B B A
+  l
+          r
+
+char_map {A:2, B:3}
+result = 5
+maxx = 3
+k = 2
+window_len = 5
 
 
-so i need to get the longest substring of the same character
-so i need a sliding window
-i want to make a hashmap where the key is the letter and the value is the frequency
-now i want to get the letter that appears most in that window and see if i can switch it to k then get the len
+
 
 
 
 """
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
-        letter_map = {}
-        max_replacement = 0
-        l = 0
+        l = r = 0
+        char_map = defaultdict(int)
+        maxx = 0
+        result = 0
 
         for r in range(len(s)):
-            letter_map[s[r]] = 1 + letter_map.get(s[r], 0)
-            window = r - l + 1
-            max_freq = max(letter_map.values())
-            if k < window - max_freq:
-                letter_map[s[l]] -=1
+            window_len = r - l + 1
+            char_map[s[r]] +=1
+            maxx = max(char_map.values())
+            if window_len - maxx <= k:
+                result = window_len
+
+            else:
+                char_map[s[l]] -=1
                 l +=1
 
-            max_replacement = max(max_replacement, r - l + 1)
+        return result
 
-        return max_replacement
         
