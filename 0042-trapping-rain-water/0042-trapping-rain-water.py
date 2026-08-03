@@ -1,48 +1,41 @@
-class Solution:
-    def trap(self, height: List[int]) -> int:
-        """
+"""
 
-l                       
+
+to get how much is trapped you need to get the min of max l and max r pointer
+
 0,1,0,2,1,0,1,3,2,1,2,1
+    l           
                       r
 
- 
-two pointers get the minimum of the max of right and left
-then do min(maxright,maxleft) - height[i] if its greater
-than 0 add to result
-this means that there is a wall to the left and if you add water it will get
-trapped in i
-
-
-
-        """
-
-        if not height: return 0
-        """
-                  l                       
-    0,1,0,2,1,0,1,3,2,1,2,1
-                r
-    leftMax = 3
-    rightMax = 2
-    result = 6
-
-        """
+maxLeft = 
+maxRight = 1
+water = 0
+"""
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        maxLeft = maxRight = 0
+        water = 0
         l, r = 0, len(height) - 1
-        result = 0
-        leftMax, rightMax = height[l], height[r]
 
         while l < r:
-            if rightMax < leftMax:
-                r -=1
-                if rightMax - height[r] > 0:
-                    result += rightMax - height[r]
-                rightMax = max(rightMax, height[r])
+            
+            if height[l] <= height[r]:
+                maxLeft = max(height[l], maxLeft)
 
+                if maxLeft - height[l] > 0:
+                    water += maxLeft - height[l]
+
+                l +=1
+
+            
             else:
-                l +=1 
-                if leftMax - height[l] > 0:
-                    result += leftMax - height[l]
+                maxRight = max(height[r], maxRight)
 
-                leftMax = max(leftMax, height[l])
+                if maxRight - height[r] > 0:
+                    water += maxRight - height[r]
 
-        return result
+                r -=1
+
+        return water
+            
+        
