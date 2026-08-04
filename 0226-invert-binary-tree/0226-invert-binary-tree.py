@@ -4,11 +4,26 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+"""
+
+so basically just flip flop node values
+
+so dfs
+
+do node.left = tmp
+node.left = node.right
+node.right = tmp
+
+dfs(node.left)
+dfs(node.right)
+
+
+
+
+"""
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
-        if not root:
-            return
-      
+
         def dfs(node):
             if not node:
                 return
@@ -19,6 +34,7 @@ class Solution:
 
             dfs(node.left)
             dfs(node.right)
+
 
         dfs(root)
         return root
