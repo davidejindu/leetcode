@@ -1,51 +1,77 @@
 """
-aaaaaaaaaaaabbbbbcdd   abcdd
-l  
-                   r
 
-t = {A:1, B:1, C:1, D:2}
-s = {A:12, B:5, C:1, D:2}
-min_substring = "" 
-substring_len = inf
-have = 4
-need = 4
+given two strings s and t return the minimum window substring of s
+so every charachter in s is in that window
+
+so basically have a hashmap where you get the frequency of t 
+then check to make sure every character in t appears in substring of s
+and get the smallest substring possible
+
+sliding window for sure
+
+have two varaibles a have and a need
+whenever the key in s matches frequency of t increment have 
+when have == need you can do your check to get the smallest substring
+
+A D O B E C O D E B A N C
+l
+          r  
+have = 3
+need = 3 (len(t hashmap))
+countT = {A:1, B:1, C:1}
+countS = {A:1, D:1, O:1, B:1, E: 1, C:1}
+
+have == need
+now do while have == need 
+you want to get smallest substring
+
+if not min_substring or r - l + 1 < len(min_substring):
+    min_substring = s[l:r+1]
+
+    s[l] -=1
+    if s[l] in countT and countS[s[l]] < countT[s[l]]:
+        have -=1
+
+    l +=1
+
+
+
 
 """
-
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
-        t_map = {}
-        s_map = {}
-        substring_len = float('inf')
-        min_substring = ""
-        l = 0
+        if not s or len(s) < len(t):
+            return ""
+
+        countT = defaultdict(int)
+        countS = defaultdict(int)
 
         for char in t:
-            t_map[char] = 1 +t_map.get(char,0)
-    
+            countT[char] +=1
+
         have = 0
-        need = len(t_map)
+        need = len(countT)
+        l = 0
+        min_substring = ""
 
         for r in range(len(s)):
-            if s[r] in t_map:
-                s_map[s[r]] = 1 + s_map.get(s[r], 0)
-            
-                if s_map[s[r]] == t_map[s[r]]:
-                    have +=1
-    
-            while have == need:
-                if r - l + 1 < substring_len:
-                    min_substring = s[l:r+1]
-                    substring_len = r - l + 1
+            countS[s[r]] +=1
 
-                if s[l] in s_map:
-                    s_map[s[l]] -=1
-                    if s_map[s[l]] < t_map[s[l]]:
-                        have -=1
-                
+            if s[r] in countT:
+                if countS[s[r]] == countT[s[r]]:
+                    have +=1
+           
+            while have == need:
+                if not min_substring or r - l + 1 < len(min_substring):
+                    min_substring = s[l:r +1]
+
+                countS[s[l]] -=1
+
+                if s[l] in countT and countS[s[l]] < countT[s[l]]:
+                    have -= 1
+
                 l +=1
 
         return min_substring
-
 
         
