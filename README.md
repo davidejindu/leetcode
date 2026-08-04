@@ -568,4 +568,8 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0054-spiral-matrix](https://github.com/davidejindu/leetcode/tree/master/0054-spiral-matrix) |
+## Range Minimum/Maximum Query
+|  |
+| ------- |
+| [0239-sliding-window-maximum](https://github.com/davidejindu/leetcode/tree/master/0239-sliding-window-maximum) |
 <!---LeetCode Topics End-->
