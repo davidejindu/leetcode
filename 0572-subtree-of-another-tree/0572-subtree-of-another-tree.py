@@ -7,32 +7,32 @@
 class Solution:
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
 
-        def isSameTree(p,q):
-            if not p and not q:
+        def same_tree(t1,t2):
+            if not t1 and not t2:
                 return True
 
-            if (not p and q) or (p and not q):
+            if (t1 and not t2) or (not t1 and t2):
                 return False
 
-            if p.val != q.val:
+            if t1.val != t2.val:
                 return False
 
-            return isSameTree(p.left,q.left) and isSameTree(p.right,q.right)
+            return same_tree(t1.left,t2.left) and same_tree(t1.right,t2.right)
 
 
-        def same_subroot(root):
-            if not root:
-                return False
-
+        def same_subTree(root,subRoot):
             if not subRoot:
                 return True
 
-            if isSameTree(root,subRoot):
+            if not root:
+                return False
+
+            if same_tree(root, subRoot):
                 return True
 
-            return same_subroot(root.left) or same_subroot(root.right)
+
+            return same_subTree(root.left,subRoot) or same_subTree(root.right,subRoot)
 
 
-        return same_subroot(root)
-
+        return same_subTree(root,subRoot)
         
