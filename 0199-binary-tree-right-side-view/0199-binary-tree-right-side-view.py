@@ -6,21 +6,19 @@
 #         self.right = right
 """
 
-want to return the values of nodes i can see from the right side
+so we always see the root so thats part of the result
 
-so want to keep track of the level the node is on and the node 
+we only want the rightmost
 
-i want to append the right node first and then left if it exists
+so we can append the rightmost to the queue first
+and after the first loop we pop the rest of the queue but make sure we add it children
 
-so i want to append the first node from that level to the result array
-then pop the other nodes that have that level from the array after first adding its children
-to the queue
+    1
+2       3
+  5         4
 
-    
-queue = [(1,2)]
-result = [1,3]
-level = 1
-self.level = 2
+result = [1,3,4]
+queue = []
 
 
 """
@@ -29,29 +27,29 @@ class Solution:
         if not root:
             return []
 
-        self.level = 0
         queue = deque([root])
         result = []
 
-
         while queue:
-            level_size = len(queue)
-
-            for i in range(level_size):
-                node = queue.popleft()
-
+            for i in range(len(queue)):
                 if i == 0:
+                    node = queue.popleft()
                     result.append(node.val)
+                    if node.right:
+                        queue.append(node.right)
+                    
+                    if node.left:
+                        queue.append(node.left)
 
-                if node.right:
-                    queue.append(node.right)
-
-                if node.left:
-                    queue.append(node.left)
+                else:
+                    node = queue.popleft()
+                    
+                    if node.right:
+                        queue.append(node.right)
+                        
+                    if node.left:
+                        queue.append(node.left)
 
 
         return result
 
-            
-
-           
