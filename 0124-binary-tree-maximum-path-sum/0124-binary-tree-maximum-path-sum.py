@@ -4,34 +4,39 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-
 """
-return max path of binary tree
+want to get max path sum
 
-want to dfs and return node.val and max of node.right and node.left
+need to return the max of left, right + node.val
 
-set the maxx equal to the max of left and right + node.val
+then need to store max in global variable
+
+the max global variable will be node.val + leftMax + rightMax
+
+if not node:
+    return 0
+
 
 
 """
 class Solution:
     def maxPathSum(self, root: Optional[TreeNode]) -> int:
-        self.result = root.val
-
+        self.maxx = root.val
 
         def dfs(node):
             if not node:
                 return 0
 
-            leftMax = dfs(node.left)
-            rightMax = dfs(node.right)
+            left = dfs(node.left)
+            right = dfs(node.right)
 
-            leftMax  = max(leftMax,0)
-            rightMax = max(rightMax,0)
+            leftMax = max(left,0)
+            rightMax = max(right,0)
 
-            self.result = max(self.result, node.val+leftMax+rightMax)
+            self.maxx = max(self.maxx,node.val + leftMax + rightMax)
 
-            return node.val + max(leftMax,rightMax)
+            return node.val + max(leftMax, rightMax)
 
         dfs(root)
-        return self.result
+
+        return self.maxx
