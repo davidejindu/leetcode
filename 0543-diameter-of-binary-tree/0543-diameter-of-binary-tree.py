@@ -4,9 +4,16 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+"""
+
+to get diameter its just height of left + height of right?
+you still need to return the height of the nodes 
+but store diameter in a global variable
+
+"""
 class Solution:
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
-        self.maxx = 0
+        self.diameter = 0
 
         def dfs(node):
             if not node:
@@ -14,12 +21,9 @@ class Solution:
 
             left = dfs(node.left)
             right = dfs(node.right)
+            self.diameter = max(self.diameter, right + left)
 
-            height = 1 + max(left, right)
-            diameter = left + right
-
-            self.maxx = max(self.maxx, diameter) 
-            return height
+            return 1 + max(left,right)
 
         dfs(root)
-        return self.maxx
+        return self.diameter
