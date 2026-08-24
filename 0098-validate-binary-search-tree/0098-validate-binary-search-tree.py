@@ -5,45 +5,35 @@
 #         self.left = left
 #         self.right = right
 """
-check if left node is less than the current node 
-and 
-
-check if right node is greater than current node but isnt less than root node
-
-need a bounds constraint
-
-when going left it has a maximum bound of anything less than current node and mas
-an unlimited minimum bound
-
-when going right it has a minimum bound of the root and a unlimited maximum bound
-
-def dfs(node, maxbound, minbound):
-    if not node:
-        return True
-
-    if node.val > maxbound or node.val < minbound:
-        return False
 
 
+valid bst if the left max val is root and min value is float('inf')
+valid bst if the right min value is the root and max value is float('inf')
 
+so you want a dfs
+
+if root.left >= max return False
+
+if root.right <= min return True
+
+if node is none return True
 
 """
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
 
-        def dfs(node, maxbound, minbound):
+        def dfs(node, minn, maxx):
             if not node:
                 return True
 
-            if node.val >= maxbound or node.val <= minbound:
+            if node.val <= minn or node.val >= maxx:
                 return False
 
-            return (dfs(node.left,node.val,minbound)
-            and dfs(node.right,maxbound,node.val))
+            return (dfs(node.left,minn,node.val)
+            and dfs(node.right,node.val,maxx))
 
 
-        return dfs(root,float('inf'), float('-inf'))
-
+        return dfs(root, float('-inf'), float('inf'))
 
 
         
