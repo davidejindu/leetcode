@@ -13,30 +13,30 @@ class Codec:
         :type root: TreeNode
         :rtype: str
         """
-        self.string = ""
+        result = []
 
         def dfs(node):
             if not node:
-                self.string += "N,"
+                result.append("N")
                 return
 
-            self.string += str(node.val) +","
+            result.append(str(node.val))
             dfs(node.left)
             dfs(node.right)
+            return node
 
         dfs(root)
-        return self.string
-
+        return ",".join(result)
         
-
     def deserialize(self, data):
         """Decodes your encoded data to tree.
         
         :type data: str
         :rtype: TreeNode
         """
-        self.i = 0
+        
         vals = data.split(",")
+        self.i = 0
 
         def dfs():
             if vals[self.i] == "N":
@@ -50,7 +50,6 @@ class Codec:
             return node
 
         return dfs()
-
         
 
 # Your Codec object will be instantiated and called as such:
