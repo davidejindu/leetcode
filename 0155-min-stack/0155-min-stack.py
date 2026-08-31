@@ -1,3 +1,8 @@
+"""
+need two stacks a normal stack and min
+if min[-1] < the val getting pushed then just push the value on top
+
+"""
 class MinStack:
 
     def __init__(self):
@@ -6,18 +11,22 @@ class MinStack:
         
 
     def push(self, val: int) -> None:
-        self.stack.append(val)
+        if self.min_stack:
+            minn = self.min_stack[-1]
+            if val < minn:
+                self.min_stack.append(val)
+            else:
+                self.min_stack.append(minn) 
 
-        if not self.min_stack:
-            self.min_stack.append(val)
         else:
-            self.min_stack.append(min(val,self.min_stack[-1]))
+            self.min_stack.append(val)   
+
+        self.stack.append(val)
         
 
     def pop(self) -> None:
         self.stack.pop()
         self.min_stack.pop()
-
         
 
     def top(self) -> int:
