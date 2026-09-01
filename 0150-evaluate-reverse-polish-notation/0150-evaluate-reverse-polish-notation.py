@@ -1,42 +1,44 @@
-import operator
+"""
+
+so im thinking you have a stack and when you get an operand you pop from the stack twice
+the so it looks like
+second pop operand first pop
+after you calculate that value you add it to the stack
+
+string = [2,1,+,3,*]
+stack = [9]
+
+
+"""
 class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
-
-        """
-        make stack 
-        loop through it if you get one of the operators
-        check if result = float('inf')
-        if true pop stack twice. the first will be second val the second pop is first val
-        the do first value operator second value and add to result
-
-        "10","6","9","3","+","-11","*","/","*","17","+","5","+"
-                                                     ^                         
-         stack = []
-         don't need a result just stack
-         if char in operator:
-            second_val = stack.pop()
-            first_val = stack.pop()
-            result = first_val operator second_val
-            else:
-                val = stack.pop()
-                result = val operator result
-        """
-
+        operand = set()
+        operand.add("+")
+        operand.add("-")
+        operand.add("/")
+        operand.add("*")
         stack = []
-        for token in tokens:
-            if token == "+":
-                a,b = stack.pop(), stack.pop()
-                stack.append(int(b + a))
-            elif token == "-":
-                a,b = stack.pop(), stack.pop()
-                stack.append(int(b - a))
-            elif token == "*":
-                a,b = stack.pop(), stack.pop()
-                stack.append(int(b * a))
-            elif token == "/":
-                a,b = stack.pop(), stack.pop()
-                stack.append(int(b /a))
+
+
+        for val in tokens:
+            if val not in operand:
+                stack.append(val)
+
             else:
-                stack.append(int(token))
-                
-        return stack[0]
+                second = stack.pop()
+                first = stack.pop()
+                if val == "+":
+                    value = int(first) + int(second)
+                    stack.append(value)
+                elif val == "-":
+                    value = int(first) - int(second)
+                    stack.append(value)
+                elif val == "/":
+                    value = int(first) / int(second)
+                    stack.append(value)
+                else:
+                    value = int(first) * int(second)
+                    stack.append(value)
+
+        return int(stack[0])
+        
