@@ -1,24 +1,42 @@
+"""
+n cars at given miles away from the starting mile 0 traveling to reach the mile target
+
+given two + int arrays position and speed of same length
+
+position i is the starting mile of the ith car and speed is the speed of the ith car in mph
+
+a car cannot pass another car but it can catch up and travel next to it at the speed of the slower car between the two
+
+
+if a car catches up to a car fleet at the mile target they will be considered part of the car fleet
+
+return the number of car fleets that arrive at the destination
+
+
+target = 12, position = [10,8,0,5,3], speed = [2,4,1,1,3]
+
+so basically you want to start going through starting from greatest position
+
+do a zip then sort it and then do reverse order so itll be like this
+pairs = [(10,2),(8,4),(5,1),(3,3),(0,1)]
+
+then you want to get the value it reaches the target by doing (target - position) / speed
+you want to see if the current position and speed is lower than the top of stack
+if it is then you dont add it to the stack since it'll be one fleet and end up matching the current speed of the top of stack if it is slower than you add that pair to the top of stack
+and you keep doing that and return the len of the stack
+
+"""
 class Solution:
     def carFleet(self, target: int, position: List[int], speed: List[int]) -> int:
-        """
-    so we can get the time itll take to reach the position by doing
-    (target - postion) / speed
-    we can create an array of pairs where we zip ang get the positon and speed
-    the we can sort it in reversing order and append the value to stack
-    if the stack is greater than len 2 then we can compare it the top to the second val
-    if the second val is faster or greater that means it catches up but
-    so itll be a fleet meaning we will pop it
-
-
-
-        """
-
-        pairs = [[p, s] for p, s in zip(position,speed)]
+        points = list(zip(position,speed))
+        points.sort(reverse=True)
         stack = []
 
-        for p, s in sorted(pairs)[::-1]:
-            stack.append((target - p) / s)
-            if len(stack) >= 2 and stack[-1] <= stack[-2]:
-                stack.pop()
+        for p,s in points:
+            value = (target - p) / s
+            if not stack or value > stack[-1]:
+                    stack.append(value)
+
 
         return len(stack)
+        
