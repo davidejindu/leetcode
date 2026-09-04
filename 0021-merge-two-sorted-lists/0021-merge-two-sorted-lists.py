@@ -3,13 +3,6 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
-"""
-so make a linkedlist that merges the two linked lists in order
-so create a dummy node that keeps track of the beggining
-then loop through each linked list and if one is smaller add it then move on
-
-
-"""
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
 
@@ -26,7 +19,9 @@ class Solution:
 
             curr = curr.next
 
-        if list1:
+
+
+        if  list1:
             curr.next = list1
         elif list2:
             curr.next = list2
