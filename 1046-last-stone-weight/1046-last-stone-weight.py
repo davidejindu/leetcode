@@ -1,44 +1,38 @@
-import heapq
+"""
+
+go through the stones list and turn them all into negative and add them to heap
+then pop the top two and then whatever is greater is y the other is x
+
+if they are both equal dont add anything back but if not equal then add y - x to heap
+
+
+
+"""
 class Solution:
-    def lastStoneWeight(self, stones: List[int]) -> int:
-        """
-        make a max heap
+    def lastStoneWeight(self, stones: list[int]) -> int:
+        heap = []
 
-        always pop two and if the first one - second isnt equal to 0
-        then add the difference between when the list == 1 return 
-        stones[0]
-    
-
-        -2, -7, -4 -1 -8 -1
-         
+        for stone in stones:
+            heapq.heappush(heap, -stone)
 
 
+        while heap and len(heap) > 1:
+            val1, val2 = -heapq.heappop(heap), -heapq.heappop(heap)
 
+            if val1 > val2:
+                y = val1
+                x = val2
+            else:
+                y = val2
+                x = val1
 
-        """
-      
-        for i in range(len(stones)):
-            stones[i] = -stones[i]
+            if y != x:
+                new_weight = y - x
+                heapq.heappush(heap, -new_weight)
 
-        heapify(stones)
-
-        while len(stones) > 1:
-            first = heapq.heappop(stones)
-            second = heapq.heappop(stones)
-
-            val = (-first) - (-second)
-            
-
-            
-            if val != 0:
-                heapq.heappush(stones,-val)
-
-        return -stones[0] if len(stones) else 0
-
-            
-
-
-
-
+        if not heap:
+            return 0 
+        else:
+            return -heap[0]
 
         
