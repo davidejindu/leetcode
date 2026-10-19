@@ -1,43 +1,41 @@
+"""
+okay so create a function where you pass in a number and then you go through
+each number and divide by the passed in number and if it is greater than h break
+if it returns a number then its good 
+
+so we sill do a loop up to the max number in piles because thats the most it can be
+
+
+
+
+
+"""
 class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
-        
-        """
 
-        len(piles) = n
-        k is bananas per hour speed
-        each hour she chooses some pile of bananas and eats k bananas 
-        h = hours 
-        if pile has less than k koko still stays on that pile for an hour
-        whats the minimum k where she can eat all bananas within h
+        max_val = max(piles)
 
-        so if h = 5 and n = 5 it has to be the max of piles because can't afford to     spend more than one hour on a single pile
+        def min_k(num):
+            val = 0
+            for i in range(len(piles)):
+                val += ceil(piles[i]/num)
+                
+                if val > h:
+                    return False
 
+            return True
 
+        l, r = 1, max_val
+        while l <= r:
+            mid = (l + r) // 2
+            if min_k(mid):
+                r = mid - 1
+            else:
+                l = mid + 1
 
-        """
+        return l
 
-        def valid_bananas_per_hour(k):
-            hours = 0
-            for pile in piles:
-                hours += ceil(pile/k)
-
-            return hours <= h
             
 
-
-        l,r = 1, max(piles)
-
-        while l < r:
-            k = (l+r)//2
-
-            if valid_bananas_per_hour(k):
-                r = k
-
-            else:
-                l = k + 1
-
-        return r
-
         
-
-
+        
