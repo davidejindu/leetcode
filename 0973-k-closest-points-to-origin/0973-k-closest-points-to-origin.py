@@ -1,31 +1,26 @@
-class Solution:
-    def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
-        
+"""
+okay so im giving points and want to find the k closes points
+ik the first section added to a heap is how it gets ordered
 
-        """
-        okay so loop through each points
-        get the calculation and the points
-        heappush(points, calculation, points[i])
-        then for i in range(k) keep popping and append points[i] to result list
-        """
+so im wonderingif i can have a heap that has the value of it and then second the points
+then i pop k times until i get the coordinates and return that
+
+
+
+"""
+class Solution:
+    def kClosest(self, points: list[list[int]], k: int) -> list[list[int]]:
+        heap = []
+
+        for x, y in points:
+            val = x**2 + y**2
+            heapq.heappush(heap, (val, [x,y]))
 
         result = []
-        heapify(result)
-
-
-        res = []
-
-        
-        for i in range(len(points)):
-            the_point = points[i]
-            val = ((the_point[0] * the_point[0]) + the_point[1] * the_point[1])
-            heapq.heappush(result,(val,the_point))
-
-        
         for i in range(k):
-            val, points = heapq.heappop(result)
-            res.append(points)
-
-        return res
+            result.append(heapq.heappop(heap)[1])
 
 
+        return result
+
+        
