@@ -1,5 +1,5 @@
 class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
+    def twoSum(self, nums: list[int], target: int) -> list[int]:
         diff_map = {}
 
         for index, value in enumerate(nums):
@@ -11,3 +11,4 @@ class Solution:
             diff_map[value] = index
 
         return []
+        
